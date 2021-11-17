@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  presences.api:
+    image: ${DOCKER_REGISTRY-}presencesapi
+    build:
+      context: .
+      dockerfile: Services/Presences/Presences.api/Dockerfile
+    depends_on:
+        - sqldata
+
+  sqldata:
+    image: mcr.microsoft.com/mssql/server:2019-latest

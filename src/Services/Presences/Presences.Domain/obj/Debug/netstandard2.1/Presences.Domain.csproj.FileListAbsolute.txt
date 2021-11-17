@@ -1,0 +1,10 @@
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\bin\Debug\netstandard2.1\Presences.Domain.deps.json
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\bin\Debug\netstandard2.1\Presences.Domain.dll
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\bin\Debug\netstandard2.1\Presences.Domain.pdb
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\obj\Debug\netstandard2.1\Presences.Domain.csproj.AssemblyReference.cache
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\obj\Debug\netstandard2.1\Presences.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\obj\Debug\netstandard2.1\Presences.Domain.AssemblyInfoInputs.cache
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\obj\Debug\netstandard2.1\Presences.Domain.AssemblyInfo.cs
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\obj\Debug\netstandard2.1\Presences.Domain.csproj.CoreCompileInputs.cache
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\obj\Debug\netstandard2.1\Presences.Domain.dll
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\obj\Debug\netstandard2.1\Presences.Domain.pdb

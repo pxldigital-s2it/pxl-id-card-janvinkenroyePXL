@@ -1,0 +1,209 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Infrastructure\\Presences.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Domain\\Presences.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Domain\\Presences.Domain.csproj",
+        "projectName": "Presences.Domain",
+        "projectPath": "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Domain\\Presences.Domain.csproj",
+        "packagesPath": "C:\\Users\\Jan Vinkenroye\\.nuget\\packages\\",
+        "outputPath": "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Jan Vinkenroye\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Infrastructure\\Presences.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Infrastructure\\Presences.Infrastructure.csproj",
+        "projectName": "Presences.Infrastructure",
+        "projectPath": "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Infrastructure\\Presences.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Jan Vinkenroye\\.nuget\\packages\\",
+        "outputPath": "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Jan Vinkenroye\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Domain\\Presences.Domain.csproj": {
+                "projectPath": "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Domain\\Presences.Domain.csproj"
+              },
+              "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Logic\\Presences.Logic.csproj": {
+                "projectPath": "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Logic\\Presences.Logic.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[7.2.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Logic\\Presences.Logic.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Logic\\Presences.Logic.csproj",
+        "projectName": "Presences.Logic",
+        "projectPath": "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Logic\\Presences.Logic.csproj",
+        "packagesPath": "C:\\Users\\Jan Vinkenroye\\.nuget\\packages\\",
+        "outputPath": "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Logic\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Jan Vinkenroye\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Domain\\Presences.Domain.csproj": {
+                "projectPath": "D:\\PXLProjects\\DotNET Expert\\pxl-id-card-janvinkenroyePXL\\src\\Services\\Presences\\Presences.Domain\\Presences.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

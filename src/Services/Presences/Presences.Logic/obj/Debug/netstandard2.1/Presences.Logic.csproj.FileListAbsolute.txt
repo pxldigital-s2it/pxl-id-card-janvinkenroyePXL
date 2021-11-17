@@ -1,0 +1,13 @@
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Logic\bin\Debug\netstandard2.1\Presences.Logic.deps.json
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Logic\bin\Debug\netstandard2.1\Presences.Logic.dll
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Logic\bin\Debug\netstandard2.1\Presences.Logic.pdb
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Logic\bin\Debug\netstandard2.1\Presences.Domain.dll
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Logic\bin\Debug\netstandard2.1\Presences.Domain.pdb
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Logic\obj\Debug\netstandard2.1\Presences.Logic.csproj.AssemblyReference.cache
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Logic\obj\Debug\netstandard2.1\Presences.Logic.GeneratedMSBuildEditorConfig.editorconfig
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Logic\obj\Debug\netstandard2.1\Presences.Logic.AssemblyInfoInputs.cache
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Logic\obj\Debug\netstandard2.1\Presences.Logic.AssemblyInfo.cs
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Logic\obj\Debug\netstandard2.1\Presences.Logic.csproj.CoreCompileInputs.cache
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Logic\obj\Debug\netstandard2.1\Presences.Logic.csproj.CopyComplete
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Logic\obj\Debug\netstandard2.1\Presences.Logic.dll
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Logic\obj\Debug\netstandard2.1\Presences.Logic.pdb

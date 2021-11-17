@@ -1,0 +1,15 @@
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Mobile\App\App\bin\Debug\netstandard2.0\App.deps.json
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Mobile\App\App\bin\Debug\netstandard2.0\App.dll
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Mobile\App\App\bin\Debug\netstandard2.0\ref\App.dll
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Mobile\App\App\bin\Debug\netstandard2.0\App.pdb
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Mobile\App\App\obj\Debug\netstandard2.0\App.csproj.AssemblyReference.cache
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Mobile\App\App\obj\Debug\netstandard2.0\App.GeneratedMSBuildEditorConfig.editorconfig
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Mobile\App\App\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Mobile\App\App\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Mobile\App\App\obj\Debug\netstandard2.0\App.AssemblyInfoInputs.cache
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Mobile\App\App\obj\Debug\netstandard2.0\App.AssemblyInfo.cs
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Mobile\App\App\obj\Debug\netstandard2.0\App.csproj.CoreCompileInputs.cache
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Mobile\App\App\obj\Debug\netstandard2.0\XamlC.stamp
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Mobile\App\App\obj\Debug\netstandard2.0\App.dll
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Mobile\App\App\obj\Debug\netstandard2.0\ref\App.dll
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Mobile\App\App\obj\Debug\netstandard2.0\App.pdb

@@ -1,0 +1,14 @@
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\obj\Debug\netstandard2.1\Presences.Infrastructure.csproj.AssemblyReference.cache
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\obj\Debug\netstandard2.1\Presences.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\obj\Debug\netstandard2.1\Presences.Infrastructure.AssemblyInfoInputs.cache
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\obj\Debug\netstandard2.1\Presences.Infrastructure.AssemblyInfo.cs
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\obj\Debug\netstandard2.1\Presences.Infrastructure.csproj.CoreCompileInputs.cache
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.infrastructure\bin\Debug\netstandard2.1\Presences.Infrastructure.deps.json
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.infrastructure\bin\Debug\netstandard2.1\Presences.Infrastructure.dll
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.infrastructure\bin\Debug\netstandard2.1\Presences.Infrastructure.pdb
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.infrastructure\bin\Debug\netstandard2.1\Presences.Domain.dll
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.infrastructure\bin\Debug\netstandard2.1\Presences.Logic.dll
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.infrastructure\bin\Debug\netstandard2.1\Presences.Domain.pdb
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.infrastructure\bin\Debug\netstandard2.1\Presences.Logic.pdb
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.infrastructure\obj\Debug\netstandard2.1\Presences.Infrastructure.dll
+D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.infrastructure\obj\Debug\netstandard2.1\Presences.Infrastructure.pdb

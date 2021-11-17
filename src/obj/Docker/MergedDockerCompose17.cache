@@ -1,0 +1,35 @@
+services:
+  presences.api:
+    build:
+      context: D:\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src
+      dockerfile: Services/Presences/Presences.api/Dockerfile
+    depends_on:
+      sqldata:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      ConnectionString: Data Source=sqldata;Database=IDCard.Presences;User Id=sa;Password=Pass@Word
+    image: presencesapi
+    ports:
+    - published: 5000
+      target: 80
+    - published: 5001
+      target: 443
+    volumes:
+    - C:\Users\Jan Vinkenroye\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\Jan Vinkenroye\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+  sqldata:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Pass@Word
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+    - published: 1433
+      target: 1433
+    volumes:
+    - pxl-sqldata:/var/opt/mssql:rw
+version: '3.4'
+volumes:
+  pxl-sqldata:
+    external: false
