@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using Presences.Domain.Enums;
+using Presences.Domain.Interfaces;
 
 namespace Presences.Domain;
 
-public class Moment
+public class Moment : IEntity
 {
     public int Id { get; set; }
     public string? Name { get; set; }

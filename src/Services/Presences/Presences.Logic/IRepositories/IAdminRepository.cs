@@ -1,13 +1,8 @@
 ﻿using Presences.Domain;
+using Presences.Logic.IRepositories;
 
 namespace Presences.Logic;
 
-public interface IAdminRepository
+public interface IAdminRepository : IGenericRepository<Admin>
 { 
-    Task<IEnumerable<Admin>> GetAdminsAsync();
-    Task<Admin?> GetAdminByIDAsync(int adminId);
-    Admin InsertAdmin(Admin admin);
-    void DeleteAdmin(int adminId);
-    void UpdateAdmin(Admin admin);
-    void Save();
 }

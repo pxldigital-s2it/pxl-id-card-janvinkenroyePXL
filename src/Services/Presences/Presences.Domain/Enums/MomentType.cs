@@ -1,4 +1,4 @@
-﻿namespace Presences.Domain;
+﻿namespace Presences.Domain.Enums;
 
 public enum MomentType
 {

@@ -24,10 +24,13 @@ public class Startup
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
 
-        services.AddScoped<IStudentRepository, StudentDbRepository>();
-        services.AddScoped<ILectorRepository, LectorDbRepository>();
-        services.AddScoped<IAdminRepository, AdminDbRepository>();
-        services.AddScoped<IMomentRepository, MomentDbRepository>();
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        services.AddSingleton(MappingConfig.CreateMapper());
+
+        services.AddScoped<IStudentRepository, StudentRepository>();
+        services.AddScoped<ILectorRepository, LectorRepository>();
+        services.AddScoped<IAdminRepository, AdminRepository>();
+        services.AddScoped<IMomentRepository, MomentRepository>();
     }
 
     public void Configure(WebApplication app, IWebHostEnvironment env)

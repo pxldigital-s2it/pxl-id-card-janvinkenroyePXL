@@ -1,14 +1,9 @@
 ﻿using Presences.Domain;
+using Presences.Logic.IRepositories;
 
 namespace Presences.Logic;
 
-public interface IStudentRepository
+public interface IStudentRepository : IGenericRepository<Student>
 {
-    Task<IEnumerable<Student>> GetStudentsAsync();
-    Task<Student?> GetStudentByIDAsync(int studentId, bool includePresences);
-    Student InsertStudent(Student student);
-    void DeleteStudent(int studentId);
-    void UpdateStudent(Student student);
     Task<IEnumerable<Presence>> GetPresencesForAStudentAsync(int studentId);
-    void Save();
 }

@@ -1,8 +1,8 @@
-﻿using System.Xml.Linq;
+﻿using Presences.Domain.Interfaces;
 
 namespace Presences.Domain;
 
-public class Student
+public class Student : IUserClassEntity
 {
     public int Id { get; set; }
     public int UserId { get; set; }

@@ -1,6 +1,8 @@
-﻿namespace Presences.Domain;
+﻿using Presences.Domain.Interfaces;
 
-public class Lector
+namespace Presences.Domain;
+
+public class Lector : IUserClassEntity
 {
     public int Id { get; set; }
     public int UserId { get; set; }

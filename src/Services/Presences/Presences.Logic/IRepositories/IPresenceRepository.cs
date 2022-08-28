@@ -3,6 +3,6 @@ using Presences.Logic.IRepositories;
 
 namespace Presences.Logic;
 
-public interface IUserRepository : IGenericRepository<User>
+public interface IPresenceRepository : IGenericRepository<Presence>
 {
 }
