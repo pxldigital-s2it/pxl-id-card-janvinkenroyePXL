@@ -1,8 +1,7 @@
-﻿namespace Presences.Domain
+﻿namespace Presences.Domain;
+
+public enum MomentType
 {
-    public enum MomentType
-    {
-        PE,
-        Exam
-    }
+    Exam,
+    PE
 }

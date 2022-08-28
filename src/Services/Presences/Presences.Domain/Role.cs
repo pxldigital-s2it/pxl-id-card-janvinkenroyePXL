@@ -1,14 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿namespace Presences.Domain;
 
-namespace Presences.Domain
+public enum Role
 {
-    public class Role : IdentityRole<int>
-    {
-        public class Constants
-        {
-            public const string Admin = "admin";
-            public const string Student = "student";
-            public const string Lector = "lector";
-        }
-    }
+    Admin,
+    Lector,
+    Student
 }

@@ -1,0 +1,1 @@
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Apps\StudentCardApp\StudentCardWinUiApp\StudentCardWinUiApp.csproj;x64

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "StudentCardWinUiApp (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "StudentCardWinUiApp (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\obj\Debug\net6.0\Presences.Infrastructure.csproj.AssemblyReference.cache
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\obj\Debug\net6.0\Presences.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\obj\Debug\net6.0\Presences.Infrastructure.AssemblyInfoInputs.cache
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\obj\Debug\net6.0\Presences.Infrastructure.AssemblyInfo.cs
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\obj\Debug\net6.0\Presences.Infrastructure.csproj.CoreCompileInputs.cache
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\obj\Debug\net6.0\Presences.Infrastructure.dll
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\obj\Debug\net6.0\refint\Presences.Infrastructure.dll
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\obj\Debug\net6.0\Presences.Infrastructure.pdb
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\bin\Debug\net6.0\Presences.Infrastructure.deps.json
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\bin\Debug\net6.0\Presences.Infrastructure.dll
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\bin\Debug\net6.0\Presences.Infrastructure.pdb
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\bin\Debug\net6.0\Presences.Domain.dll
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\bin\Debug\net6.0\Presences.Logic.dll
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\bin\Debug\net6.0\Presences.Domain.pdb
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\bin\Debug\net6.0\Presences.Logic.pdb
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\obj\Debug\net6.0\Presences.Infrastructure.csproj.CopyComplete
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Infrastructure\obj\Debug\net6.0\ref\Presences.Infrastructure.dll

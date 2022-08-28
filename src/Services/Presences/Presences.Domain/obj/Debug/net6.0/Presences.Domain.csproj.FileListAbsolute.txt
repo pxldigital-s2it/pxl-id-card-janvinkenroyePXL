@@ -1,0 +1,12 @@
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\bin\Debug\net6.0\Presences.Domain.deps.json
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\bin\Debug\net6.0\Presences.Domain.dll
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\bin\Debug\net6.0\Presences.Domain.pdb
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\obj\Debug\net6.0\Presences.Domain.csproj.AssemblyReference.cache
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\obj\Debug\net6.0\Presences.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\obj\Debug\net6.0\Presences.Domain.AssemblyInfoInputs.cache
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\obj\Debug\net6.0\Presences.Domain.AssemblyInfo.cs
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\obj\Debug\net6.0\Presences.Domain.csproj.CoreCompileInputs.cache
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\obj\Debug\net6.0\Presences.Domain.dll
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\obj\Debug\net6.0\refint\Presences.Domain.dll
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\obj\Debug\net6.0\Presences.Domain.pdb
+D:\dev\PXLProjects\DotNET Expert\pxl-id-card-janvinkenroyePXL\src\Services\Presences\Presences.Domain\obj\Debug\net6.0\ref\Presences.Domain.dll
