@@ -1,9 +1,8 @@
 ﻿using Presences.Domain;
-using Presences.Logic.IRepositories;
 
-namespace Presences.Logic;
+namespace Presences.Logic.IRepositories;
 
-public interface ILectorRepository : IGenericRepository<Lector>
+public interface ILectorRepository : IGenericUserClassRepository<Lector>
 {
     Task<IEnumerable<Moment>> GetMomentsForALectorAsync(int lectorId);
 }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using Presences.DataTransfer;
 using Presences.Domain;
-using Presences.Dto;
 
 namespace Presences.Logic.MapperProfiles;
 

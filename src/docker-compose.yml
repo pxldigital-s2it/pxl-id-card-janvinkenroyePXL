@@ -5,9 +5,11 @@ services:
     image: ${DOCKER_REGISTRY-}presencesapi
     build:
       context: .
-      dockerfile: Services/Presences/Presences.FullApi/Dockerfile
+      dockerfile: Services/Presences/Presences.Api/Dockerfile
     depends_on:
         - sqldata
 
   sqldata:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqldata
+

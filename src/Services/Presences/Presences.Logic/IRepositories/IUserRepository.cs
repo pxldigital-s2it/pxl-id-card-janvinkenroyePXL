@@ -1,8 +1,7 @@
 ﻿using Presences.Domain;
-using Presences.Logic.IRepositories;
 
-namespace Presences.Logic;
+namespace Presences.Logic.IRepositories;
 
-public interface IUserRepository : IGenericRepository<User>
+public interface IUserRepository
 {
 }

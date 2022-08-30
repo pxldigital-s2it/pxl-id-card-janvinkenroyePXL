@@ -1,12 +1,12 @@
 ﻿using Presences.Domain;
-using Presences.Logic;
+using Presences.Logic.IRepositories;
 
-namespace Presences.Infrastructure;
+namespace Presences.Infrastructure.Repositories;
 
-public class PresenceRepository : GenericRepository<Presence>, IPresenceRepository
+internal class PresenceRepository : GenericRepository<Presence>, IPresenceRepository
 {
     public PresenceRepository(PresencesContext context) : base(context)
     {
     }
-    
+
 }

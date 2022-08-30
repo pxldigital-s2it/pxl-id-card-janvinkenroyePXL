@@ -1,8 +1,7 @@
 ﻿using Presences.Domain;
-using Presences.Logic.IRepositories;
 
-namespace Presences.Logic;
+namespace Presences.Logic.IRepositories;
 
-public interface IAdminRepository : IGenericRepository<Admin>
-{ 
+public interface IAdminRepository : IGenericUserClassRepository<Admin>
+{
 }

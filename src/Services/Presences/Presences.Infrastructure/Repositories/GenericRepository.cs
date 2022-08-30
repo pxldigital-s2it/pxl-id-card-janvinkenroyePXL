@@ -2,17 +2,17 @@
 using Presences.Domain.Interfaces;
 using Presences.Logic.IRepositories;
 
-namespace Presences.Infrastructure;
+namespace Presences.Infrastructure.Repositories;
 
-public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class, IEntity
+internal class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class, IEntity
 {
     private PresencesContext _presencesContext;
 
     public GenericRepository(PresencesContext context)
     {
-        this._presencesContext = context;
+        _presencesContext = context ?? throw new ArgumentNullException(nameof(_presencesContext));
     }
-    
+
     public async Task<IEnumerable<TEntity>> GetAllAsync()
     {
         return await _presencesContext.Set<TEntity>()

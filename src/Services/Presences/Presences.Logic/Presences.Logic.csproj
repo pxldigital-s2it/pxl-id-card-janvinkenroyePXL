@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Dto\Presences.Dto\Presences.Dto.csproj" />
     <ProjectReference Include="..\Presences.Domain\Presences.Domain.csproj" />
+    <ProjectReference Include="..\Presences.Dto\Presences.DataTransfer.csproj" />
   </ItemGroup>
 
   <ItemGroup>

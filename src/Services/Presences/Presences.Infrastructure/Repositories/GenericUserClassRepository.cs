@@ -1,30 +1,28 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Presences.Domain;
 using Presences.Domain.Interfaces;
 using Presences.Logic.IRepositories;
 
-namespace Presences.Infrastructure;
+namespace Presences.Infrastructure.Repositories;
 
-public class GenericUserClassRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class, IUserClassEntity
+internal class GenericUserClassRepository<TEntity> : IGenericUserClassRepository<TEntity> where TEntity : class, IUserClassEntity
 {
     private PresencesContext _presencesContext;
-
+     
     public GenericUserClassRepository(PresencesContext context)
     {
-        this._presencesContext = context;
+        _presencesContext = context ?? throw new ArgumentNullException(nameof(_presencesContext));
     }
-    
+
     public async Task<IEnumerable<TEntity>> GetAllAsync()
     {
         return await _presencesContext.Set<TEntity>()
-            .Include(u => u.User)
             .ToListAsync();
     }
 
-    public async Task<TEntity?> GetByIDAsync(int userId)
+    public async Task<TEntity?> GetByUserNumberAsync(int userNumber)
     {
         return await _presencesContext.Set<TEntity>()
-            .Where(u => u.UserId == userId)
+            .Where(u => u.UserNumber == userNumber)
             .Include(u => u.User)
             .SingleOrDefaultAsync();
     }
@@ -42,10 +40,10 @@ public class GenericUserClassRepository<TEntity> : IGenericRepository<TEntity> w
         Save();
     }
 
-    public void Delete(int userId)
+    public void DeleteByUserNumber(int userNumber)
     {
         var entity = _presencesContext.Set<TEntity>()
-            .Where(u => u.UserId == userId)
+            .Where(u => u.UserNumber == userNumber)
             .SingleOrDefaultAsync().Result;
         if (entity != null)
         {
@@ -54,9 +52,9 @@ public class GenericUserClassRepository<TEntity> : IGenericRepository<TEntity> w
         }
     }
 
-    public async Task<bool> ExistsAsync(int userId)
+    public async Task<bool> ExistsByUserNumberAsync(int userNumber)
     {
-        return await _presencesContext.Set<TEntity>().AnyAsync(a => a.UserId == userId);
+        return await _presencesContext.Set<TEntity>().AnyAsync(a => a.UserNumber == userNumber);
     }
 
     public void Save()

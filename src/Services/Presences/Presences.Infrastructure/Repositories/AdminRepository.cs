@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Presences.Domain;
-using Presences.Logic;
+using Presences.Logic.IRepositories;
 
-namespace Presences.Infrastructure;
+namespace Presences.Infrastructure.Repositories;
 
-public class AdminRepository : GenericUserClassRepository<Admin>, IAdminRepository
+internal class AdminRepository : GenericUserClassRepository<Admin>, IAdminRepository
 {
     public AdminRepository(PresencesContext context) : base(context)
     {

@@ -1,14 +1,12 @@
-﻿using Presences.Domain;
+﻿namespace Presences.Logic.IRepositories;
 
-namespace Presences.Logic.IRepositories;
-
-public interface IGenericRepository<T>
+public interface IGenericRepository<TEntity>
 {
-    Task<IEnumerable<T>> GetAllAsync();
-    Task<T?> GetByIDAsync(int id);
-    T Insert(T entity);
+    Task<IEnumerable<TEntity>> GetAllAsync();
+    Task<TEntity?> GetByIDAsync(int id);
+    TEntity Insert(TEntity entity);
     void Delete(int id);
-    void Update(T entity);
+    void Update(TEntity entity);
     Task<bool> ExistsAsync(int id);
     void Save();
 }

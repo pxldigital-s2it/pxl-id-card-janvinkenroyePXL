@@ -29,15 +29,10 @@ namespace Presences.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasColumnName("id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("UserId")
+                    b.Property<int>("UserNumber")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
 
                     b.ToTable("admins", (string)null);
 
@@ -45,7 +40,7 @@ namespace Presences.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            UserId = 23
+                            UserNumber = 23
                         });
                 });
 
@@ -56,15 +51,10 @@ namespace Presences.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasColumnName("id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("UserId")
+                    b.Property<int>("UserNumber")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
 
                     b.ToTable("lectors", (string)null);
 
@@ -72,32 +62,32 @@ namespace Presences.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            UserId = 17
+                            UserNumber = 17
                         },
                         new
                         {
                             Id = 2,
-                            UserId = 18
+                            UserNumber = 18
                         },
                         new
                         {
                             Id = 3,
-                            UserId = 19
+                            UserNumber = 19
                         },
                         new
                         {
                             Id = 4,
-                            UserId = 20
+                            UserNumber = 20
                         },
                         new
                         {
                             Id = 5,
-                            UserId = 21
+                            UserNumber = 21
                         },
                         new
                         {
                             Id = 6,
-                            UserId = 22
+                            UserNumber = 22
                         });
                 });
 
@@ -150,17 +140,17 @@ namespace Presences.Infrastructure.Migrations
                     b.Property<bool>("IsBlanco")
                         .HasColumnType("bit");
 
-                    b.Property<int>("MomentForeignKey")
+                    b.Property<int>("MomentId")
                         .HasColumnType("int");
 
-                    b.Property<int>("StudentForeignKey")
+                    b.Property<int>("StudentId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MomentForeignKey");
+                    b.HasIndex("MomentId");
 
-                    b.HasIndex("StudentForeignKey");
+                    b.HasIndex("StudentId");
 
                     b.ToTable("presences", (string)null);
                 });
@@ -172,15 +162,10 @@ namespace Presences.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasColumnName("id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("UserId")
+                    b.Property<int>("UserNumber")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
 
                     b.ToTable("students", (string)null);
 
@@ -188,93 +173,97 @@ namespace Presences.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            UserId = 1
+                            UserNumber = 1
                         },
                         new
                         {
                             Id = 2,
-                            UserId = 2
+                            UserNumber = 2
                         },
                         new
                         {
                             Id = 3,
-                            UserId = 3
+                            UserNumber = 3
                         },
                         new
                         {
                             Id = 4,
-                            UserId = 4
+                            UserNumber = 4
                         },
                         new
                         {
                             Id = 5,
-                            UserId = 5
+                            UserNumber = 5
                         },
                         new
                         {
                             Id = 6,
-                            UserId = 6
+                            UserNumber = 6
                         },
                         new
                         {
                             Id = 7,
-                            UserId = 7
+                            UserNumber = 7
                         },
                         new
                         {
                             Id = 8,
-                            UserId = 8
+                            UserNumber = 8
                         },
                         new
                         {
                             Id = 9,
-                            UserId = 9
+                            UserNumber = 9
                         },
                         new
                         {
                             Id = 10,
-                            UserId = 10
+                            UserNumber = 10
                         },
                         new
                         {
                             Id = 11,
-                            UserId = 11
+                            UserNumber = 11
                         },
                         new
                         {
                             Id = 12,
-                            UserId = 12
+                            UserNumber = 12
                         },
                         new
                         {
                             Id = 13,
-                            UserId = 13
+                            UserNumber = 13
                         },
                         new
                         {
                             Id = 14,
-                            UserId = 14
+                            UserNumber = 14
                         },
                         new
                         {
                             Id = 15,
-                            UserId = 15
+                            UserNumber = 15
                         },
                         new
                         {
                             Id = 16,
-                            UserId = 16
+                            UserNumber = 16
                         });
                 });
 
             modelBuilder.Entity("Presences.Domain.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserNumber")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("id");
+                        .HasColumnName("user_number");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserNumber"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("email");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -292,17 +281,20 @@ namespace Presences.Infrastructure.Migrations
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)")
+                        .HasColumnType("nvarchar(450)")
                         .HasColumnName("username");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserNumber");
+
+                    b.HasIndex("UserName")
+                        .IsUnique();
 
                     b.ToTable("users", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            UserNumber = 1,
                             FirstName = "Jochem",
                             LastName = "Beckers",
                             Role = 2,
@@ -310,7 +302,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 2,
+                            UserNumber = 2,
                             FirstName = "Pieter",
                             LastName = "Geerts",
                             Role = 2,
@@ -318,7 +310,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 3,
+                            UserNumber = 3,
                             FirstName = "Chris",
                             LastName = "Goyens",
                             Role = 2,
@@ -326,7 +318,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 4,
+                            UserNumber = 4,
                             FirstName = "Steven",
                             LastName = "Jacquemin",
                             Role = 2,
@@ -334,7 +326,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 5,
+                            UserNumber = 5,
                             FirstName = "Daisy",
                             LastName = "Jansen",
                             Role = 2,
@@ -342,7 +334,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 6,
+                            UserNumber = 6,
                             FirstName = "Geoffrey",
                             LastName = "Jorissen",
                             Role = 2,
@@ -350,7 +342,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 7,
+                            UserNumber = 7,
                             FirstName = "Rob",
                             LastName = "Jorissen",
                             Role = 2,
@@ -358,7 +350,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 8,
+                            UserNumber = 8,
                             FirstName = "Ward",
                             LastName = "Lenaerts",
                             Role = 2,
@@ -366,7 +358,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 9,
+                            UserNumber = 9,
                             FirstName = "Stijn",
                             LastName = "Lenaerts",
                             Role = 2,
@@ -374,7 +366,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 10,
+                            UserNumber = 10,
                             FirstName = "Sigrid",
                             LastName = "Meesters",
                             Role = 2,
@@ -382,7 +374,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 11,
+                            UserNumber = 11,
                             FirstName = "Enkhjargal",
                             LastName = "Mijid",
                             Role = 2,
@@ -390,7 +382,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 12,
+                            UserNumber = 12,
                             FirstName = "Wouter",
                             LastName = "Paps",
                             Role = 2,
@@ -398,7 +390,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 13,
+                            UserNumber = 13,
                             FirstName = "Robby",
                             LastName = "Quintiens",
                             Role = 2,
@@ -406,7 +398,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 14,
+                            UserNumber = 14,
                             FirstName = "Nadine",
                             LastName = "Vaesen",
                             Role = 2,
@@ -414,7 +406,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 15,
+                            UserNumber = 15,
                             FirstName = "Jan",
                             LastName = "Vinkenroye",
                             Role = 2,
@@ -422,7 +414,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 16,
+                            UserNumber = 16,
                             FirstName = "Jeff",
                             LastName = "Willen",
                             Role = 2,
@@ -430,7 +422,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 17,
+                            UserNumber = 17,
                             FirstName = "Nele",
                             LastName = "Custers",
                             Role = 1,
@@ -438,7 +430,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 18,
+                            UserNumber = 18,
                             FirstName = "Luc",
                             LastName = "Doumen",
                             Role = 1,
@@ -446,7 +438,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 19,
+                            UserNumber = 19,
                             FirstName = "Kris",
                             LastName = "Hermans",
                             Role = 1,
@@ -454,7 +446,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 20,
+                            UserNumber = 20,
                             FirstName = "Dries",
                             LastName = "Swinnen",
                             Role = 1,
@@ -462,7 +454,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 21,
+                            UserNumber = 21,
                             FirstName = "Niek",
                             LastName = "Vandael",
                             Role = 1,
@@ -470,7 +462,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 22,
+                            UserNumber = 22,
                             FirstName = "Jan",
                             LastName = "Willekens",
                             Role = 1,
@@ -478,7 +470,7 @@ namespace Presences.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = 23,
+                            UserNumber = 23,
                             FirstName = "Nathalie",
                             LastName = "Fuchs",
                             Role = 0,
@@ -490,7 +482,7 @@ namespace Presences.Infrastructure.Migrations
                 {
                     b.HasOne("Presences.Domain.User", "User")
                         .WithOne()
-                        .HasForeignKey("Presences.Domain.Admin", "UserId")
+                        .HasForeignKey("Presences.Domain.Admin", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
@@ -501,7 +493,7 @@ namespace Presences.Infrastructure.Migrations
                 {
                     b.HasOne("Presences.Domain.User", "User")
                         .WithOne()
-                        .HasForeignKey("Presences.Domain.Lector", "UserId")
+                        .HasForeignKey("Presences.Domain.Lector", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
@@ -523,13 +515,13 @@ namespace Presences.Infrastructure.Migrations
                 {
                     b.HasOne("Presences.Domain.Moment", "Moment")
                         .WithMany()
-                        .HasForeignKey("MomentForeignKey")
+                        .HasForeignKey("MomentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Presences.Domain.Student", "Student")
                         .WithMany("Presences")
-                        .HasForeignKey("StudentForeignKey")
+                        .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -542,7 +534,7 @@ namespace Presences.Infrastructure.Migrations
                 {
                     b.HasOne("Presences.Domain.User", "User")
                         .WithOne()
-                        .HasForeignKey("Presences.Domain.Student", "UserId")
+                        .HasForeignKey("Presences.Domain.Student", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 

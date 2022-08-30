@@ -1,17 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Presences.Domain;
-using Presences.Logic;
+using Presences.Logic.IRepositories;
 
-namespace Presences.Infrastructure;
+namespace Presences.Infrastructure.Repositories;
 
-public class LectorRepository : GenericUserClassRepository<Lector>, ILectorRepository
+internal class LectorRepository : GenericUserClassRepository<Lector>, ILectorRepository
 {
     public LectorRepository(PresencesContext context) : base(context)
     {
     }
-    public async Task<IEnumerable<Moment>> GetMomentsForALectorAsync(int userId)
+    public async Task<IEnumerable<Moment>> GetMomentsForALectorAsync(int userNumber)
     {
-        var lector = await GetByIDAsync(userId);
+        var lector = await GetByUserNumberAsync(userNumber);
         if (lector != null)
         {
             return lector.OwnedMoments;

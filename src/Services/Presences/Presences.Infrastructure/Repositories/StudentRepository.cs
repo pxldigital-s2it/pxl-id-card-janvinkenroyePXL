@@ -1,17 +1,17 @@
 ﻿using Presences.Domain;
-using Presences.Logic;
+using Presences.Logic.IRepositories;
 
-namespace Presences.Infrastructure;
+namespace Presences.Infrastructure.Repositories;
 
-public class StudentRepository : GenericUserClassRepository<Student>, IStudentRepository
+internal class StudentRepository : GenericUserClassRepository<Student>, IStudentRepository
 {
     public StudentRepository(PresencesContext context) : base(context)
     {
     }
-    
-    public async Task<IEnumerable<Presence>> GetPresencesForAStudentAsync(int studentId)
+
+    public async Task<IEnumerable<Presence>> GetPresencesForAStudentAsync(int userNumber)
     {
-        var student = await GetByIDAsync(studentId);
+        var student = await GetByUserNumberAsync(userNumber);
         if (student != null)
         {
             return student.Presences;

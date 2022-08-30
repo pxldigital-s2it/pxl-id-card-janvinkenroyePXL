@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Presences.Domain;
 using Presences.Domain.Enums;
 
-namespace Presences.Infrastructure;
+namespace Presences.Infrastructure.EntityConfigurations;
 
 internal class UserConfiguration : IEntityTypeConfiguration<User>
 {
@@ -12,10 +12,14 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
         builder.ToTable("users");
 
         builder
-            .HasKey(u => u.Id);
+            .HasKey(u => u.UserNumber);
 
-        builder.Property(u => u.Id)
-            .HasColumnName("id")
+        builder
+            .HasIndex(u => u.UserName)
+            .IsUnique();
+
+        builder.Property(u => u.UserNumber)
+            .HasColumnName("user_number")
             .ValueGeneratedOnAdd();
 
         builder.Property(u => u.UserName)
@@ -30,6 +34,9 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             .HasColumnName("last_name")
             .IsRequired();
 
+        builder.Property(u => u.Email)
+            .HasColumnName("email");
+
         builder.Property(u => u.Role)
             .HasColumnName("role")
             .IsRequired();
@@ -37,7 +44,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
         builder.HasData(
             new User()
             {
-                Id = 1,
+                UserNumber = 1,
                 Role = Role.Student,
                 UserName = "jochembeckers",
                 FirstName = "Jochem",
@@ -45,7 +52,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
             new User()
             {
-                Id = 2,
+                UserNumber = 2,
                 Role = Role.Student,
                 UserName = "pietergeerts",
                 FirstName = "Pieter",
@@ -53,7 +60,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
             new User()
             {
-                Id = 3,
+                UserNumber = 3,
                 Role = Role.Student,
                 UserName = "chrisgoyens",
                 FirstName = "Chris",
@@ -61,7 +68,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
             new User()
             {
-                Id = 4,
+                UserNumber = 4,
                 Role = Role.Student,
                 UserName = "stevenjacquemin",
                 FirstName = "Steven",
@@ -69,7 +76,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
             new User()
             {
-                Id = 5,
+                UserNumber = 5,
                 Role = Role.Student,
                 UserName = "daisyjansen",
                 FirstName = "Daisy",
@@ -77,7 +84,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
             new User()
             {
-                Id = 6,
+                UserNumber = 6,
                 Role = Role.Student,
                 UserName = "geoffreyjorissen",
                 FirstName = "Geoffrey",
@@ -85,7 +92,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
              new User()
              {
-                 Id = 7,
+                 UserNumber = 7,
                  Role = Role.Student,
                  UserName = "robjorissen",
                  FirstName = "Rob",
@@ -93,7 +100,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
              },
              new User()
              {
-                 Id = 8,
+                 UserNumber = 8,
                  Role = Role.Student,
                  UserName = "wardlenaerts",
                  FirstName = "Ward",
@@ -101,7 +108,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
              },
              new User()
              {
-                 Id = 9,
+                 UserNumber = 9,
                  Role = Role.Student,
                  UserName = "stijnlenaerts",
                  FirstName = "Stijn",
@@ -109,7 +116,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
              },
              new User()
              {
-                 Id = 10,
+                 UserNumber = 10,
                  Role = Role.Student,
                  UserName = "sigridmeesters",
                  FirstName = "Sigrid",
@@ -117,7 +124,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
              },
              new User()
              {
-                 Id = 11,
+                 UserNumber = 11,
                  Role = Role.Student,
                  UserName = "enkhjargalmijid",
                  FirstName = "Enkhjargal",
@@ -125,7 +132,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
              },
             new User()
             {
-                Id = 12,
+                UserNumber = 12,
                 Role = Role.Student,
                 UserName = "wouterpaps",
                 FirstName = "Wouter",
@@ -133,7 +140,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
             new User()
             {
-                Id = 13,
+                UserNumber = 13,
                 Role = Role.Student,
                 UserName = "robbyquintiens",
                 FirstName = "Robby",
@@ -141,7 +148,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
             new User()
             {
-                Id = 14,
+                UserNumber = 14,
                 Role = Role.Student,
                 UserName = "nadinevaesen",
                 FirstName = "Nadine",
@@ -149,7 +156,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
             new User()
             {
-                Id = 15,
+                UserNumber = 15,
                 Role = Role.Student,
                 UserName = "janvinkenroye",
                 FirstName = "Jan",
@@ -157,7 +164,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
             new User()
             {
-                Id = 16,
+                UserNumber = 16,
                 Role = Role.Student,
                 UserName = "jeffwillen",
                 FirstName = "Jeff",
@@ -165,7 +172,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
             new User()
             {
-                Id = 17,
+                UserNumber = 17,
                 Role = Role.Lector,
                 UserName = "nelecusters",
                 FirstName = "Nele",
@@ -173,7 +180,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
             new User()
             {
-                Id = 18,
+                UserNumber = 18,
                 Role = Role.Lector,
                 UserName = "lucdoumen",
                 FirstName = "Luc",
@@ -181,7 +188,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
             new User()
             {
-                Id = 19,
+                UserNumber = 19,
                 Role = Role.Lector,
                 UserName = "krishermans",
                 FirstName = "Kris",
@@ -189,7 +196,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
             new User()
             {
-                Id = 20,
+                UserNumber = 20,
                 Role = Role.Lector,
                 UserName = "driesswinnen",
                 FirstName = "Dries",
@@ -197,7 +204,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
             new User()
             {
-                Id = 21,
+                UserNumber = 21,
                 Role = Role.Lector,
                 UserName = "niekvandael",
                 FirstName = "Niek",
@@ -205,7 +212,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
             new User()
             {
-                Id = 22,
+                UserNumber = 22,
                 Role = Role.Lector,
                 UserName = "janwillekens",
                 FirstName = "Jan",
@@ -213,7 +220,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             },
             new User()
             {
-                Id = 23,
+                UserNumber = 23,
                 Role = Role.Admin,
                 UserName = "nathaliefuchs",
                 FirstName = "Nathalie",

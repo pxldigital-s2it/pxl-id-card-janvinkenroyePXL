@@ -1,9 +1,9 @@
 ﻿using Presences.Domain;
-using Presences.Logic;
+using Presences.Logic.IRepositories;
 
-namespace Presences.Infrastructure;
+namespace Presences.Infrastructure.Repositories;
 
-public class MomentRepository : GenericRepository<Moment>, IMomentRepository
+internal class MomentRepository : GenericRepository<Moment>, IMomentRepository
 {
     public MomentRepository(PresencesContext context) : base(context)
     {

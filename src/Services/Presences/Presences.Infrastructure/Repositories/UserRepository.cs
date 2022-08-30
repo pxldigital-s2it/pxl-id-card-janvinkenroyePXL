@@ -1,12 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Presences.Domain;
-using Presences.Logic;
+﻿using Presences.Logic.IRepositories;
 
-namespace Presences.Infrastructure;
+namespace Presences.Infrastructure.Repositories;
 
-public class UserRepository : GenericRepository<User>, IUserRepository
+internal class UserRepository : IUserRepository
 {
-    public UserRepository(PresencesContext context) : base(context)
+    public UserRepository(PresencesContext context)
     {
     }
 }

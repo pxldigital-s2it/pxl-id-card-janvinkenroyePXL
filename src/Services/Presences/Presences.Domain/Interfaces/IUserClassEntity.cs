@@ -2,6 +2,6 @@
 
 public interface IUserClassEntity
 {
-    int UserId { get; set; }
+    int UserNumber { get; set; }
     User? User { get; set; }
 }

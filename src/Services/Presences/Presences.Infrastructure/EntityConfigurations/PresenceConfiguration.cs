@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Presences.Domain;
 
-namespace Presences.Infrastructure;
+namespace Presences.Infrastructure.EntityConfigurations;
 
 internal class PresenceConfiguration : IEntityTypeConfiguration<Presence>
 {
@@ -11,24 +11,20 @@ internal class PresenceConfiguration : IEntityTypeConfiguration<Presence>
         builder.ToTable("presences");
 
         builder
-            .HasKey(ms => ms.Id);
+            .HasKey(p => p.Id);
 
-        builder.Property(ms => ms.Id)
+        builder.Property(p => p.Id)
                 .HasColumnName("id")
                 .ValueGeneratedOnAdd();
 
-        builder.Property<int>("StudentForeignKey");
-
         builder
-            .HasOne(ms => ms.Student)
-            .WithMany(s => s.Presences)
-            .HasForeignKey("StudentForeignKey");
-
-        builder.Property<int>("MomentForeignKey");
+            .HasOne(p => p.Student)
+            .WithMany(p => p.Presences)
+            .HasForeignKey(p => p.StudentId);
 
         builder
             .HasOne(ms => ms.Moment)
             .WithMany()
-            .HasForeignKey("MomentForeignKey");
+            .HasForeignKey(p => p.MomentId);
     }
 }

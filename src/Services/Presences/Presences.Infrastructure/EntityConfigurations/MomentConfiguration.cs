@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Presences.Domain;
 
-namespace Presences.Infrastructure;
+namespace Presences.Infrastructure.EntityConfigurations;
 
 internal class MomentConfiguration : IEntityTypeConfiguration<Moment>
 {

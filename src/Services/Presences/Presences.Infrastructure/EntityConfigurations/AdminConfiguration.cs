@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Presences.Domain;
 
-namespace Presences.Infrastructure;
+namespace Presences.Infrastructure.EntityConfigurations;
 
 internal class AdminConfiguration : IEntityTypeConfiguration<Admin>
 {
@@ -17,16 +17,16 @@ internal class AdminConfiguration : IEntityTypeConfiguration<Admin>
                 .HasColumnName("id")
                 .ValueGeneratedOnAdd();
 
-        builder.HasOne<User>(a => a.User)
+        builder.HasOne(a => a.User)
             .WithOne()
-            .HasForeignKey<Admin>(a => a.UserId)
+            .HasForeignKey<Admin>(a => a.Id)
             .OnDelete(DeleteBehavior.ClientCascade);
 
         builder.HasData(
            new Admin()
            {
                Id = 1,
-               UserId = 23
+               UserNumber = 23
            });
     }
 }

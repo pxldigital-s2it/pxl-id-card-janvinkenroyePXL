@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Presences.Domain;
+using Presences.Infrastructure.EntityConfigurations;
 
 namespace Presences.Infrastructure;
 

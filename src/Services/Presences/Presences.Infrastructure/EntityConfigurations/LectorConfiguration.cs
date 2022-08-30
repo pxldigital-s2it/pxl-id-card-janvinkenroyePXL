@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Presences.Domain;
 
-namespace Presences.Infrastructure;
+namespace Presences.Infrastructure.EntityConfigurations;
 
 internal class LectorConfiguration : IEntityTypeConfiguration<Lector>
 {
@@ -17,41 +17,41 @@ internal class LectorConfiguration : IEntityTypeConfiguration<Lector>
                 .HasColumnName("id")
                 .ValueGeneratedOnAdd();
 
-        builder.HasOne<User>(l => l.User)
+        builder.HasOne(l => l.User)
             .WithOne()
-            .HasForeignKey<Lector>(l => l.UserId)
+            .HasForeignKey<Lector>(l => l.Id)
             .OnDelete(DeleteBehavior.ClientCascade);
 
         builder.HasData(
            new Lector()
            {
                Id = 1,
-               UserId = 17,
+               UserNumber = 17,
            },
            new Lector()
            {
                Id = 2,
-               UserId = 18,
+               UserNumber = 18,
            },
            new Lector()
            {
                Id = 3,
-               UserId = 19,
+               UserNumber = 19,
            },
            new Lector()
            {
                Id = 4,
-               UserId = 20,
+               UserNumber = 20,
            },
            new Lector()
            {
                Id = 5,
-               UserId = 21,
+               UserNumber = 21,
            },
            new Lector()
            {
                Id = 6,
-               UserId = 22,
+               UserNumber = 22,
            });
     }
 }
