@@ -1,10 +1,11 @@
-﻿using DigitalStudentCard.Core.Models;
+﻿using DigitalStudentCard.Core.DataStores.Contracts;
+using DigitalStudentCard.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DigitalStudentCard.Core.Services.Data
+namespace DigitalStudentCard.Core.DataStores
 {
     public class MockItemDataStore : IDataStore<Item>
     {
@@ -32,7 +33,7 @@ namespace DigitalStudentCard.Core.Services.Data
 
         public async Task<bool> UpdateAsync(Item item)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
+            var oldItem = items.Where((arg) => arg.Id == item.Id).FirstOrDefault();
             items.Remove(oldItem);
             items.Add(item);
 
@@ -41,7 +42,7 @@ namespace DigitalStudentCard.Core.Services.Data
 
         public async Task<bool> DeleteAsync(int id)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
+            var oldItem = items.Where((arg) => arg.Id == id).FirstOrDefault();
             items.Remove(oldItem);
 
             return await Task.FromResult(true);

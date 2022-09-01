@@ -1,10 +1,11 @@
-﻿using DigitalStudentCard.Core.Models;
+﻿using DigitalStudentCard.Core.DataStores.Contracts;
+using DigitalStudentCard.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DigitalStudentCard.Core.Services.Data
+namespace DigitalStudentCard.Core.DataStores
 {
     public class MockPresenceDataStore : IDataStore<Presence>
     {
@@ -14,8 +15,8 @@ namespace DigitalStudentCard.Core.Services.Data
         {
             presences = new List<Presence>()
             {
-                new Presence 
-                { 
+                new Presence
+                {
                     IsBlanco = true,
                     Student = new Student
                             {
@@ -110,7 +111,7 @@ namespace DigitalStudentCard.Core.Services.Data
 
         public async Task<bool> UpdateAsync(Presence presence)
         {
-            var oldPresence = presences.Where((Presence arg) => arg.Id == presence.Id).FirstOrDefault();
+            var oldPresence = presences.Where((arg) => arg.Id == presence.Id).FirstOrDefault();
             presences.Remove(oldPresence);
             presences.Add(presence);
 
@@ -119,7 +120,7 @@ namespace DigitalStudentCard.Core.Services.Data
 
         public async Task<bool> DeleteAsync(int id)
         {
-            var oldPresence = presences.Where((Presence arg) => arg.Id == id).FirstOrDefault();
+            var oldPresence = presences.Where((arg) => arg.Id == id).FirstOrDefault();
             presences.Remove(oldPresence);
 
             return await Task.FromResult(true);

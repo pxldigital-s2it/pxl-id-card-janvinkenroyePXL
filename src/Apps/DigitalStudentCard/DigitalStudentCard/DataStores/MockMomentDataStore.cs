@@ -1,11 +1,12 @@
-﻿using DigitalStudentCard.Core.Enums;
+﻿using DigitalStudentCard.Core.DataStores.Contracts;
+using DigitalStudentCard.Core.Enums;
 using DigitalStudentCard.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DigitalStudentCard.Core.Services.Data
+namespace DigitalStudentCard.Core.DataStores
 {
     public class MockMomentDataStore : IDataStore<Moment>
     {
@@ -19,7 +20,7 @@ namespace DigitalStudentCard.Core.Services.Data
                 {
                     Id = 1,
                     Name = "Examen .NET Expert",
-                    MomentType = Enums.MomentType.Exam,
+                    MomentType = MomentType.Exam,
                     Date = DateTime.Now.AddMinutes(new Random().Next(20000)),
                     Location = "Lokaal B0.01",
                     Presences = new List<Presence>
@@ -141,7 +142,7 @@ namespace DigitalStudentCard.Core.Services.Data
 
         public async Task<bool> UpdateAsync(Moment moment)
         {
-            var oldMoment = moments.Where((Moment arg) => arg.Id == moment.Id).FirstOrDefault();
+            var oldMoment = moments.Where((arg) => arg.Id == moment.Id).FirstOrDefault();
             moments.Remove(oldMoment);
             moments.Add(moment);
 
@@ -150,7 +151,7 @@ namespace DigitalStudentCard.Core.Services.Data
 
         public async Task<bool> DeleteAsync(int id)
         {
-            var oldMoment = moments.Where((Moment arg) => arg.Id == id).FirstOrDefault();
+            var oldMoment = moments.Where((arg) => arg.Id == id).FirstOrDefault();
             moments.Remove(oldMoment);
 
             return await Task.FromResult(true);

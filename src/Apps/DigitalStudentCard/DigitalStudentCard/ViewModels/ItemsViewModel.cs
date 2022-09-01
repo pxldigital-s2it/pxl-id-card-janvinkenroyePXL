@@ -1,5 +1,5 @@
-﻿using DigitalStudentCard.Core.Models;
-using DigitalStudentCard.Core.Services.Data;
+﻿using DigitalStudentCard.Core.DataStores.Contracts;
+using DigitalStudentCard.Core.Models;
 using DigitalStudentCard.Core.Views.Item;
 using System;
 using System.Collections.ObjectModel;

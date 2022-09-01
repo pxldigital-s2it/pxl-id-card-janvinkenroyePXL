@@ -1,6 +1,6 @@
-﻿using DigitalStudentCard.Core.Models;
+﻿using DigitalStudentCard.Core.DataStores.Contracts;
+using DigitalStudentCard.Core.Models;
 using DigitalStudentCard.Core.Services;
-using DigitalStudentCard.Core.Services.Data;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DigitalStudentCard.Core.Services.Data
+namespace DigitalStudentCard.Core.DataStores.Contracts
 {
     public interface IDataStore<T>
     {

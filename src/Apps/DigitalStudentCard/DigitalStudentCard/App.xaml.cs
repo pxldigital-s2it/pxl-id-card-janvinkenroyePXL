@@ -1,5 +1,5 @@
-﻿using DigitalStudentCard.Core.Services;
-using DigitalStudentCard.Core.Services.Data;
+﻿using DigitalStudentCard.Core.DataStores;
+using DigitalStudentCard.Core.Services;
 using Xamarin.Forms;
 
 namespace DigitalStudentCard.Core
