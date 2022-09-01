@@ -2,10 +2,10 @@
 
 namespace Presences.Domain;
 
-public class Lector : IUserClassEntity
+public class Lector : IEntity
 {
     public int Id { get; set; }
     public int UserNumber { get; set; }
-    public User? User { get; set; }
+    public virtual User? User { get; set; }
     public ICollection<Moment> OwnedMoments { get; set; } = new List<Moment>();
 }

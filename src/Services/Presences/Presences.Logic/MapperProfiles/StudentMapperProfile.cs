@@ -8,7 +8,7 @@ internal class StudentMapperProfile : Profile
 {
     public StudentMapperProfile()
     {
-        CreateMap<Student, StudentDto>().IncludeMembers(s => s.User).ReverseMap();
+        CreateMap<Student, StudentDto>().IncludeMembers(s => s.User);
         CreateMap<User, StudentDto>();
     }
 }

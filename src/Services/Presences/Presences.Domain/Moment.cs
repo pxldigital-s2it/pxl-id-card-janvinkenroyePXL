@@ -10,6 +10,7 @@ public class Moment : IEntity
     public MomentType MomentType { get; set; }
     public DateTime? Date { get; set; }
     public string? Location { get; set; }
+    public int LectorId { get; set; }
     public Lector? Lector { get; set; }
-    public ICollection<Student> PresentStudents { get; set; } = new List<Student>();
+    public ICollection<Presence> Presences { get; set; } = new List<Presence>();
 }

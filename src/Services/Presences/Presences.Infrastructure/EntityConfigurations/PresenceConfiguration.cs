@@ -23,8 +23,8 @@ internal class PresenceConfiguration : IEntityTypeConfiguration<Presence>
             .HasForeignKey(p => p.StudentId);
 
         builder
-            .HasOne(ms => ms.Moment)
-            .WithMany()
+            .HasOne(p => p.Moment)
+            .WithMany(m => m.Presences)
             .HasForeignKey(p => p.MomentId);
     }
 }

@@ -106,7 +106,7 @@ namespace Presences.Infrastructure.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("date");
 
-                    b.Property<int>("LectorForeignKey")
+                    b.Property<int>("LectorId")
                         .HasColumnType("int");
 
                     b.Property<string>("Location")
@@ -125,7 +125,7 @@ namespace Presences.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LectorForeignKey");
+                    b.HasIndex("LectorId");
 
                     b.ToTable("moments", (string)null);
                 });
@@ -502,7 +502,7 @@ namespace Presences.Infrastructure.Migrations
                 {
                     b.HasOne("Presences.Domain.Lector", "Lector")
                         .WithMany("OwnedMoments")
-                        .HasForeignKey("LectorForeignKey")
+                        .HasForeignKey("LectorId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

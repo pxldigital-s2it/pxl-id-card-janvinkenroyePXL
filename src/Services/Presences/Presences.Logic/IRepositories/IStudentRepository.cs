@@ -2,7 +2,7 @@
 
 namespace Presences.Logic.IRepositories;
 
-public interface IStudentRepository : IGenericUserClassRepository<Student>
+public interface IStudentRepository : IGenericRepository<Student>
 {
-    Task<IEnumerable<Presence>> GetPresencesForAStudentAsync(int studentId);
+    Task AddPresenceForAStudentAsync(int id, Presence newPresence);
 }

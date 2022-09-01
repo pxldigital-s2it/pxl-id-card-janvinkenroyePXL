@@ -2,9 +2,9 @@
 
 namespace Presences.Domain;
 
-public class Admin : IUserClassEntity
+public class Admin : IEntity
 {
     public int Id { get; set; }
     public int UserNumber { get; set; }
-    public User? User { get; set; }
+    public virtual User? User { get; set; }
 }

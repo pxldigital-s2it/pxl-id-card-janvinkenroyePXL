@@ -57,6 +57,7 @@ public class Startup
         services.AddScoped<ILectorRepository, LectorRepository>();
         services.AddScoped<IAdminRepository, AdminRepository>();
         services.AddScoped<IMomentRepository, MomentRepository>();
+        services.AddScoped<IPresenceRepository, PresenceRepository>();
     }
 
     public void Configure(WebApplication app, IWebHostEnvironment env)

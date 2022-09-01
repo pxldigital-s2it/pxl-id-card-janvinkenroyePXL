@@ -104,7 +104,7 @@ namespace Presences.Infrastructure.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("date");
 
-                    b.Property<int>("LectorForeignKey")
+                    b.Property<int>("LectorId")
                         .HasColumnType("int");
 
                     b.Property<string>("Location")
@@ -123,9 +123,81 @@ namespace Presences.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LectorForeignKey");
+                    b.HasIndex("LectorId");
 
                     b.ToTable("moments", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            LectorId = 3,
+                            MomentType = 1,
+                            Name = "PE Web Expert"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            LectorId = 1,
+                            MomentType = 0,
+                            Name = "Examen IT Essentials"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            LectorId = 1,
+                            MomentType = 0,
+                            Name = "Examen Java Essentials"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            LectorId = 1,
+                            MomentType = 0,
+                            Name = "Examen Java Advanced 1"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            LectorId = 1,
+                            MomentType = 0,
+                            Name = "Examen Java Advanced 2"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            LectorId = 4,
+                            MomentType = 1,
+                            Name = "PE Security Essentials"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            LectorId = 4,
+                            MomentType = 0,
+                            Name = "Examen Security Essentials"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            LectorId = 4,
+                            MomentType = 0,
+                            Name = "Examen Web Expert"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            LectorId = 5,
+                            MomentType = 0,
+                            Name = "Examen Linux Dekstop"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            LectorId = 5,
+                            MomentType = 1,
+                            Name = "PE Mobile Development"
+                        });
                 });
 
             modelBuilder.Entity("Presences.Domain.Presence", b =>
@@ -275,6 +347,10 @@ namespace Presences.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("last_name");
 
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("password");
+
                     b.Property<int>("Role")
                         .HasColumnType("int")
                         .HasColumnName("role");
@@ -297,6 +373,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 1,
                             FirstName = "Jochem",
                             LastName = "Beckers",
+                            Password = "1234",
                             Role = 2,
                             UserName = "jochembeckers"
                         },
@@ -305,6 +382,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 2,
                             FirstName = "Pieter",
                             LastName = "Geerts",
+                            Password = "1234",
                             Role = 2,
                             UserName = "pietergeerts"
                         },
@@ -313,6 +391,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 3,
                             FirstName = "Chris",
                             LastName = "Goyens",
+                            Password = "1234",
                             Role = 2,
                             UserName = "chrisgoyens"
                         },
@@ -321,6 +400,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 4,
                             FirstName = "Steven",
                             LastName = "Jacquemin",
+                            Password = "1234",
                             Role = 2,
                             UserName = "stevenjacquemin"
                         },
@@ -329,6 +409,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 5,
                             FirstName = "Daisy",
                             LastName = "Jansen",
+                            Password = "1234",
                             Role = 2,
                             UserName = "daisyjansen"
                         },
@@ -337,6 +418,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 6,
                             FirstName = "Geoffrey",
                             LastName = "Jorissen",
+                            Password = "1234",
                             Role = 2,
                             UserName = "geoffreyjorissen"
                         },
@@ -345,6 +427,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 7,
                             FirstName = "Rob",
                             LastName = "Jorissen",
+                            Password = "1234",
                             Role = 2,
                             UserName = "robjorissen"
                         },
@@ -353,6 +436,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 8,
                             FirstName = "Ward",
                             LastName = "Lenaerts",
+                            Password = "1234",
                             Role = 2,
                             UserName = "wardlenaerts"
                         },
@@ -361,6 +445,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 9,
                             FirstName = "Stijn",
                             LastName = "Lenaerts",
+                            Password = "1234",
                             Role = 2,
                             UserName = "stijnlenaerts"
                         },
@@ -369,6 +454,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 10,
                             FirstName = "Sigrid",
                             LastName = "Meesters",
+                            Password = "1234",
                             Role = 2,
                             UserName = "sigridmeesters"
                         },
@@ -377,6 +463,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 11,
                             FirstName = "Enkhjargal",
                             LastName = "Mijid",
+                            Password = "1234",
                             Role = 2,
                             UserName = "enkhjargalmijid"
                         },
@@ -385,6 +472,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 12,
                             FirstName = "Wouter",
                             LastName = "Paps",
+                            Password = "1234",
                             Role = 2,
                             UserName = "wouterpaps"
                         },
@@ -393,6 +481,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 13,
                             FirstName = "Robby",
                             LastName = "Quintiens",
+                            Password = "1234",
                             Role = 2,
                             UserName = "robbyquintiens"
                         },
@@ -401,6 +490,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 14,
                             FirstName = "Nadine",
                             LastName = "Vaesen",
+                            Password = "1234",
                             Role = 2,
                             UserName = "nadinevaesen"
                         },
@@ -409,6 +499,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 15,
                             FirstName = "Jan",
                             LastName = "Vinkenroye",
+                            Password = "1234",
                             Role = 2,
                             UserName = "janvinkenroye"
                         },
@@ -417,6 +508,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 16,
                             FirstName = "Jeff",
                             LastName = "Willen",
+                            Password = "1234",
                             Role = 2,
                             UserName = "jeffwillen"
                         },
@@ -425,6 +517,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 17,
                             FirstName = "Nele",
                             LastName = "Custers",
+                            Password = "1234",
                             Role = 1,
                             UserName = "nelecusters"
                         },
@@ -433,6 +526,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 18,
                             FirstName = "Luc",
                             LastName = "Doumen",
+                            Password = "1234",
                             Role = 1,
                             UserName = "lucdoumen"
                         },
@@ -441,6 +535,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 19,
                             FirstName = "Kris",
                             LastName = "Hermans",
+                            Password = "1234",
                             Role = 1,
                             UserName = "krishermans"
                         },
@@ -449,6 +544,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 20,
                             FirstName = "Dries",
                             LastName = "Swinnen",
+                            Password = "1234",
                             Role = 1,
                             UserName = "driesswinnen"
                         },
@@ -457,6 +553,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 21,
                             FirstName = "Niek",
                             LastName = "Vandael",
+                            Password = "1234",
                             Role = 1,
                             UserName = "niekvandael"
                         },
@@ -465,6 +562,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 22,
                             FirstName = "Jan",
                             LastName = "Willekens",
+                            Password = "1234",
                             Role = 1,
                             UserName = "janwillekens"
                         },
@@ -473,6 +571,7 @@ namespace Presences.Infrastructure.Migrations
                             UserNumber = 23,
                             FirstName = "Nathalie",
                             LastName = "Fuchs",
+                            Password = "1234",
                             Role = 0,
                             UserName = "nathaliefuchs"
                         });
@@ -504,7 +603,7 @@ namespace Presences.Infrastructure.Migrations
                 {
                     b.HasOne("Presences.Domain.Lector", "Lector")
                         .WithMany("OwnedMoments")
-                        .HasForeignKey("LectorForeignKey")
+                        .HasForeignKey("LectorId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

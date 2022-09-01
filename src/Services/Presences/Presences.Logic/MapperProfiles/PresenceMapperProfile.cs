@@ -8,12 +8,9 @@ internal class PresenceMapperProfile : Profile
 {
     public PresenceMapperProfile()
     {
+        CreateMap<Student, StudentDto>().IncludeMembers(s => s.User);
+        CreateMap<User, StudentDto>();
         CreateMap<Presence, PresenceDto>()
-            .ForMember(dest => dest.Student, opt => opt.MapFrom(src => src.Student))
-            .ForMember(dest => dest.Moment, opt => opt.MapFrom(src => src.Moment))
-            .ReverseMap();
-
-        CreateMap<Student, StudentDto>().IncludeMembers(s => s.User).ReverseMap();
-        CreateMap<Moment, MomentDto>().ReverseMap();
+            .ForMember(dest => dest.Student, act => act.MapFrom(src => src.Student));
     }
 }

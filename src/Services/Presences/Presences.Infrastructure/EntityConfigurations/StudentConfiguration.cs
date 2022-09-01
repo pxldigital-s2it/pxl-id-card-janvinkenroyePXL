@@ -23,11 +23,6 @@ internal class StudentConfiguration : IEntityTypeConfiguration<Student>
             .HasForeignKey<Student>(s => s.Id)
             .OnDelete(DeleteBehavior.ClientCascade);
 
-        builder
-            .HasMany(s => s.MomentsPresent)
-            .WithMany(m => m.PresentStudents)
-            .UsingEntity<Presence>();
-
         builder.HasData(
             new Student()
             {

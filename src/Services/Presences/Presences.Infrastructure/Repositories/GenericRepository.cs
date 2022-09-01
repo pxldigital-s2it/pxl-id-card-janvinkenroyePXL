@@ -13,33 +13,34 @@ internal class GenericRepository<TEntity> : IGenericRepository<TEntity> where TE
         _presencesContext = context ?? throw new ArgumentNullException(nameof(_presencesContext));
     }
 
-    public async Task<IEnumerable<TEntity>> GetAllAsync()
+    public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
     {
         return await _presencesContext.Set<TEntity>()
             .ToListAsync();
     }
 
-    public async Task<TEntity?> GetByIDAsync(int id)
+    public virtual async Task<TEntity?> GetByIDAsync(int id)
     {
         return await _presencesContext.Set<TEntity>()
             .Where(u => u.Id == id)
             .SingleOrDefaultAsync();
     }
 
-    public TEntity Insert(TEntity newEntity)
+    // Async ?? and return object incl related entities
+    public virtual TEntity Insert(TEntity newEntity)
     {
         var addedEntity = _presencesContext.Set<TEntity>().Add(newEntity).Entity;
         Save();
         return addedEntity;
     }
 
-    public void Update(TEntity entity)
+    public virtual void Update(TEntity entity)
     {
         _presencesContext.Entry(entity).State = EntityState.Modified;
         Save();
     }
 
-    public void Delete(int id)
+    public virtual void Delete(int id)
     {
         var entity = _presencesContext.Admins.Find(id);
         if (entity != null)
@@ -49,12 +50,12 @@ internal class GenericRepository<TEntity> : IGenericRepository<TEntity> where TE
         }
     }
 
-    public async Task<bool> ExistsAsync(int id)
+    public virtual async Task<bool> ExistsAsync(int id)
     {
         return await _presencesContext.Set<TEntity>().AnyAsync(a => a.Id == id);
     }
 
-    public void Save()
+    public virtual void Save()
     {
         _presencesContext.SaveChanges();
     }

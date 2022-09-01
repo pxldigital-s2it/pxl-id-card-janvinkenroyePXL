@@ -2,6 +2,6 @@
 
 namespace Presences.Logic.IRepositories;
 
-public interface IAdminRepository : IGenericUserClassRepository<Admin>
+public interface IAdminRepository : IGenericRepository<Admin>
 {
 }

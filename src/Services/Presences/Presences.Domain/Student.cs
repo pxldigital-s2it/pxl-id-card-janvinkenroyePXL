@@ -2,11 +2,10 @@
 
 namespace Presences.Domain;
 
-public class Student : IUserClassEntity
+public class Student : IEntity
 {
     public int Id { get; set; }
     public int UserNumber { get; set; }
-    public User? User { get; set; }
+    public virtual User? User { get; set; }
     public ICollection<Presence> Presences { get; set; } = new List<Presence>();
-    public ICollection<Moment> MomentsPresent { get; set; } = new List<Moment>();
 }

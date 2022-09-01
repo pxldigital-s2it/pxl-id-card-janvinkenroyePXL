@@ -86,14 +86,14 @@ namespace Presences.Infrastructure.Migrations
                     type = table.Column<int>(type: "int", nullable: false),
                     date = table.Column<DateTime>(type: "datetime2", nullable: true),
                     location = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LectorForeignKey = table.Column<int>(type: "int", nullable: false)
+                    LectorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_moments", x => x.id);
                     table.ForeignKey(
-                        name: "FK_moments_lectors_LectorForeignKey",
-                        column: x => x.LectorForeignKey,
+                        name: "FK_moments_lectors_LectorId",
+                        column: x => x.LectorId,
                         principalTable: "lectors",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
@@ -198,9 +198,9 @@ namespace Presences.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_moments_LectorForeignKey",
+                name: "IX_moments_LectorId",
                 table: "moments",
-                column: "LectorForeignKey");
+                column: "LectorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_presences_MomentId",

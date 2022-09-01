@@ -2,7 +2,6 @@
 
 namespace Presences.Logic.IRepositories;
 
-public interface ILectorRepository : IGenericUserClassRepository<Lector>
+public interface ILectorRepository : IGenericRepository<Lector>
 {
-    Task<IEnumerable<Moment>> GetMomentsForALectorAsync(int lectorId);
 }

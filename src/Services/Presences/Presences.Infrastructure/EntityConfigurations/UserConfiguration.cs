@@ -26,6 +26,9 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
             .HasColumnName("username")
             .IsRequired();
 
+        builder.Property(u => u.Password)
+            .HasColumnName("password");
+
         builder.Property(u => u.FirstName)
             .HasColumnName("first_name")
             .IsRequired();
@@ -49,6 +52,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "jochembeckers",
                 FirstName = "Jochem",
                 LastName = "Beckers",
+                Password = "1234"
             },
             new User()
             {
@@ -57,6 +61,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "pietergeerts",
                 FirstName = "Pieter",
                 LastName = "Geerts",
+                Password = "1234"
             },
             new User()
             {
@@ -65,6 +70,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "chrisgoyens",
                 FirstName = "Chris",
                 LastName = "Goyens",
+                Password = "1234"
             },
             new User()
             {
@@ -73,6 +79,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "stevenjacquemin",
                 FirstName = "Steven",
                 LastName = "Jacquemin",
+                Password = "1234"
             },
             new User()
             {
@@ -81,6 +88,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "daisyjansen",
                 FirstName = "Daisy",
                 LastName = "Jansen",
+                Password = "1234"
             },
             new User()
             {
@@ -89,6 +97,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "geoffreyjorissen",
                 FirstName = "Geoffrey",
                 LastName = "Jorissen",
+                Password = "1234"
             },
              new User()
              {
@@ -97,6 +106,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                  UserName = "robjorissen",
                  FirstName = "Rob",
                  LastName = "Jorissen",
+                 Password = "1234"
              },
              new User()
              {
@@ -105,6 +115,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                  UserName = "wardlenaerts",
                  FirstName = "Ward",
                  LastName = "Lenaerts",
+                 Password = "1234"
              },
              new User()
              {
@@ -113,6 +124,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                  UserName = "stijnlenaerts",
                  FirstName = "Stijn",
                  LastName = "Lenaerts",
+                 Password = "1234"
              },
              new User()
              {
@@ -121,6 +133,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                  UserName = "sigridmeesters",
                  FirstName = "Sigrid",
                  LastName = "Meesters",
+                 Password = "1234"
              },
              new User()
              {
@@ -129,6 +142,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                  UserName = "enkhjargalmijid",
                  FirstName = "Enkhjargal",
                  LastName = "Mijid",
+                 Password = "1234"
              },
             new User()
             {
@@ -137,6 +151,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "wouterpaps",
                 FirstName = "Wouter",
                 LastName = "Paps",
+                Password = "1234"
             },
             new User()
             {
@@ -145,6 +160,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "robbyquintiens",
                 FirstName = "Robby",
                 LastName = "Quintiens",
+                Password = "1234"
             },
             new User()
             {
@@ -153,6 +169,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "nadinevaesen",
                 FirstName = "Nadine",
                 LastName = "Vaesen",
+                Password = "1234"
             },
             new User()
             {
@@ -161,6 +178,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "janvinkenroye",
                 FirstName = "Jan",
                 LastName = "Vinkenroye",
+                Password = "1234"
             },
             new User()
             {
@@ -169,6 +187,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "jeffwillen",
                 FirstName = "Jeff",
                 LastName = "Willen",
+                Password = "1234"
             },
             new User()
             {
@@ -177,6 +196,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "nelecusters",
                 FirstName = "Nele",
                 LastName = "Custers",
+                Password = "1234"
             },
             new User()
             {
@@ -185,6 +205,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "lucdoumen",
                 FirstName = "Luc",
                 LastName = "Doumen",
+                Password = "1234"
             },
             new User()
             {
@@ -193,6 +214,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "krishermans",
                 FirstName = "Kris",
                 LastName = "Hermans",
+                Password = "1234"
             },
             new User()
             {
@@ -201,6 +223,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "driesswinnen",
                 FirstName = "Dries",
                 LastName = "Swinnen",
+                Password = "1234"
             },
             new User()
             {
@@ -209,6 +232,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "niekvandael",
                 FirstName = "Niek",
                 LastName = "Vandael",
+                Password = "1234"
             },
             new User()
             {
@@ -217,6 +241,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "janwillekens",
                 FirstName = "Jan",
                 LastName = "Willekens",
+                Password = "1234"
             },
             new User()
             {
@@ -225,6 +250,7 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
                 UserName = "nathaliefuchs",
                 FirstName = "Nathalie",
                 LastName = "Fuchs",
+                Password = "1234"
             }
         );
     }
