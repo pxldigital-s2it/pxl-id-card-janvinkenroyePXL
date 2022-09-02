@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Presences.Infrastructure;
 
+#nullable disable
+
 namespace Presences.Infrastructure.Migrations
 {
     [DbContext(typeof(PresencesContext))]
@@ -15,81 +17,214 @@ namespace Presences.Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.11")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "6.0.8")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("Presences.Domain.Admin", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    b.Property<int>("UserNumber")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("admins", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            UserNumber = 23
+                        });
+                });
+
+            modelBuilder.Entity("Presences.Domain.Lector", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    b.Property<int>("UserNumber")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("lectors", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            UserNumber = 17
+                        },
+                        new
+                        {
+                            Id = 2,
+                            UserNumber = 18
+                        },
+                        new
+                        {
+                            Id = 3,
+                            UserNumber = 19
+                        },
+                        new
+                        {
+                            Id = 4,
+                            UserNumber = 20
+                        },
+                        new
+                        {
+                            Id = 5,
+                            UserNumber = 21
+                        },
+                        new
+                        {
+                            Id = 6,
+                            UserNumber = 22
+                        });
+                });
 
             modelBuilder.Entity("Presences.Domain.Moment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnName("id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime?>("Date")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("date");
+
+                    b.Property<int>("LectorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("location");
 
                     b.Property<int>("MomentType")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("type");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)")
+                        .HasColumnName("name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Moments");
+                    b.HasIndex("LectorId");
+
+                    b.ToTable("moments", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            MomentType = 0,
-                            Name = "PE .NET Expert"
+                            LectorId = 3,
+                            MomentType = 1,
+                            Name = "PE Web Expert"
                         },
                         new
                         {
                             Id = 2,
-                            MomentType = 1,
-                            Name = "Examen .NET Expert"
+                            LectorId = 1,
+                            MomentType = 0,
+                            Name = "Examen IT Essentials"
                         },
                         new
                         {
                             Id = 3,
+                            LectorId = 1,
                             MomentType = 0,
-                            Name = "PE Mobile Development"
+                            Name = "Examen Java Essentials"
                         },
                         new
                         {
                             Id = 4,
-                            MomentType = 1,
-                            Name = "Examen Mobile Development"
+                            LectorId = 1,
+                            MomentType = 0,
+                            Name = "Examen Java Advanced 1"
                         },
                         new
                         {
                             Id = 5,
-                            MomentType = 1,
-                            Name = "Examen Web Expert"
+                            LectorId = 1,
+                            MomentType = 0,
+                            Name = "Examen Java Advanced 2"
                         },
                         new
                         {
                             Id = 6,
+                            LectorId = 4,
                             MomentType = 1,
-                            Name = "Examen Java Expert"
+                            Name = "PE Security Essentials"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            LectorId = 4,
+                            MomentType = 0,
+                            Name = "Examen Security Essentials"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            LectorId = 4,
+                            MomentType = 0,
+                            Name = "Examen Web Expert"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            LectorId = 5,
+                            MomentType = 0,
+                            Name = "Examen Linux Dekstop"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            LectorId = 5,
+                            MomentType = 1,
+                            Name = "PE Mobile Development"
                         });
                 });
 
-            modelBuilder.Entity("Presences.Domain.MomentStudent", b =>
+            modelBuilder.Entity("Presences.Domain.Presence", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<bool>("IsBlanco")
+                        .HasColumnType("bit");
+
                     b.Property<int>("MomentId")
                         .HasColumnType("int");
 
                     b.Property<int>("StudentId")
                         .HasColumnType("int");
 
-                    b.HasKey("MomentId", "StudentId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("MomentId");
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("MomentStudents");
+                    b.ToTable("presences", (string)null);
                 });
 
             modelBuilder.Entity("Presences.Domain.Student", b =>
@@ -97,244 +232,422 @@ namespace Presences.Infrastructure.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnName("id");
 
-                    b.Property<int>("AccessFailedCount")
+                    b.Property<int>("UserNumber")
                         .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
+                    b.ToTable("students", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = 50317565,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "6d5bcca9-de1e-4d83-82f3-5cf3f64435c3",
-                            EmailConfirmed = false,
+                            Id = 1,
+                            UserNumber = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            UserNumber = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            UserNumber = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            UserNumber = 4
+                        },
+                        new
+                        {
+                            Id = 5,
+                            UserNumber = 5
+                        },
+                        new
+                        {
+                            Id = 6,
+                            UserNumber = 6
+                        },
+                        new
+                        {
+                            Id = 7,
+                            UserNumber = 7
+                        },
+                        new
+                        {
+                            Id = 8,
+                            UserNumber = 8
+                        },
+                        new
+                        {
+                            Id = 9,
+                            UserNumber = 9
+                        },
+                        new
+                        {
+                            Id = 10,
+                            UserNumber = 10
+                        },
+                        new
+                        {
+                            Id = 11,
+                            UserNumber = 11
+                        },
+                        new
+                        {
+                            Id = 12,
+                            UserNumber = 12
+                        },
+                        new
+                        {
+                            Id = 13,
+                            UserNumber = 13
+                        },
+                        new
+                        {
+                            Id = 14,
+                            UserNumber = 14
+                        },
+                        new
+                        {
+                            Id = 15,
+                            UserNumber = 15
+                        },
+                        new
+                        {
+                            Id = 16,
+                            UserNumber = 16
+                        });
+                });
+
+            modelBuilder.Entity("Presences.Domain.User", b =>
+                {
+                    b.Property<int>("UserNumber")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("user_number");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserNumber"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("email");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("first_name");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("last_name");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("password");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("int")
+                        .HasColumnName("role");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("username");
+
+                    b.HasKey("UserNumber");
+
+                    b.HasIndex("UserName")
+                        .IsUnique();
+
+                    b.ToTable("users", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserNumber = 1,
                             FirstName = "Jochem",
                             LastName = "Beckers",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            TwoFactorEnabled = false,
+                            Password = "1234",
+                            Role = 2,
                             UserName = "jochembeckers"
                         },
                         new
                         {
-                            Id = 50531122,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "deebfbc9-67d6-46a5-a45c-137614a37901",
-                            EmailConfirmed = false,
+                            UserNumber = 2,
                             FirstName = "Pieter",
                             LastName = "Geerts",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            TwoFactorEnabled = false,
+                            Password = "1234",
+                            Role = 2,
                             UserName = "pietergeerts"
                         },
                         new
                         {
-                            Id = 84082214,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "ee6a4c7b-5583-4296-8349-a10706007263",
-                            EmailConfirmed = false,
+                            UserNumber = 3,
                             FirstName = "Chris",
                             LastName = "Goyens",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            TwoFactorEnabled = false,
+                            Password = "1234",
+                            Role = 2,
                             UserName = "chrisgoyens"
                         },
                         new
                         {
-                            Id = 49014562,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "49e88580-b20d-4a59-86ba-ad2cc6e31f0f",
-                            EmailConfirmed = false,
+                            UserNumber = 4,
                             FirstName = "Steven",
                             LastName = "Jacquemin",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            TwoFactorEnabled = false,
+                            Password = "1234",
+                            Role = 2,
                             UserName = "stevenjacquemin"
                         },
                         new
                         {
-                            Id = 91813987,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "88adcf82-55bf-4a4d-bfaa-62284f786ee9",
-                            EmailConfirmed = false,
+                            UserNumber = 5,
+                            FirstName = "Daisy",
+                            LastName = "Jansen",
+                            Password = "1234",
+                            Role = 2,
+                            UserName = "daisyjansen"
+                        },
+                        new
+                        {
+                            UserNumber = 6,
                             FirstName = "Geoffrey",
                             LastName = "Jorissen",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            TwoFactorEnabled = false,
+                            Password = "1234",
+                            Role = 2,
                             UserName = "geoffreyjorissen"
                         },
                         new
                         {
-                            Id = 63117126,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "e171f780-9c2e-415c-ae5a-f937a0082461",
-                            EmailConfirmed = false,
+                            UserNumber = 7,
                             FirstName = "Rob",
                             LastName = "Jorissen",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            TwoFactorEnabled = false,
+                            Password = "1234",
+                            Role = 2,
                             UserName = "robjorissen"
                         },
                         new
                         {
-                            Id = 30441858,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "1d098f2f-12bc-4c69-9c56-f44bc111a092",
-                            EmailConfirmed = false,
+                            UserNumber = 8,
+                            FirstName = "Ward",
+                            LastName = "Lenaerts",
+                            Password = "1234",
+                            Role = 2,
+                            UserName = "wardlenaerts"
+                        },
+                        new
+                        {
+                            UserNumber = 9,
+                            FirstName = "Stijn",
+                            LastName = "Lenaerts",
+                            Password = "1234",
+                            Role = 2,
+                            UserName = "stijnlenaerts"
+                        },
+                        new
+                        {
+                            UserNumber = 10,
                             FirstName = "Sigrid",
                             LastName = "Meesters",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            TwoFactorEnabled = false,
+                            Password = "1234",
+                            Role = 2,
                             UserName = "sigridmeesters"
                         },
                         new
                         {
-                            Id = 52449732,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "cc9bf18d-ca9f-4087-8f15-440ec70184e4",
-                            EmailConfirmed = false,
+                            UserNumber = 11,
+                            FirstName = "Enkhjargal",
+                            LastName = "Mijid",
+                            Password = "1234",
+                            Role = 2,
+                            UserName = "enkhjargalmijid"
+                        },
+                        new
+                        {
+                            UserNumber = 12,
                             FirstName = "Wouter",
                             LastName = "Paps",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            TwoFactorEnabled = false,
+                            Password = "1234",
+                            Role = 2,
                             UserName = "wouterpaps"
                         },
                         new
                         {
-                            Id = 15559621,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "d5edb3ac-8e6c-472f-993a-719ad262737b",
-                            EmailConfirmed = false,
+                            UserNumber = 13,
                             FirstName = "Robby",
                             LastName = "Quintiens",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            TwoFactorEnabled = false,
+                            Password = "1234",
+                            Role = 2,
                             UserName = "robbyquintiens"
                         },
                         new
                         {
-                            Id = 46559947,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "43998ced-98bc-4f7d-91f2-eed305220b15",
-                            EmailConfirmed = false,
+                            UserNumber = 14,
                             FirstName = "Nadine",
                             LastName = "Vaesen",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            TwoFactorEnabled = false,
+                            Password = "1234",
+                            Role = 2,
                             UserName = "nadinevaesen"
                         },
                         new
                         {
-                            Id = 11903691,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "486bf434-ccc2-4c2a-b53e-0788976bf4a6",
-                            EmailConfirmed = false,
+                            UserNumber = 15,
                             FirstName = "Jan",
                             LastName = "Vinkenroye",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            TwoFactorEnabled = false,
+                            Password = "1234",
+                            Role = 2,
                             UserName = "janvinkenroye"
                         },
                         new
                         {
-                            Id = 97305845,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "d64b9492-a6a1-4388-8d0b-4ce8b7763977",
-                            EmailConfirmed = false,
+                            UserNumber = 16,
                             FirstName = "Jeff",
                             LastName = "Willen",
-                            LockoutEnabled = false,
-                            PhoneNumberConfirmed = false,
-                            TwoFactorEnabled = false,
+                            Password = "1234",
+                            Role = 2,
                             UserName = "jeffwillen"
+                        },
+                        new
+                        {
+                            UserNumber = 17,
+                            FirstName = "Nele",
+                            LastName = "Custers",
+                            Password = "1234",
+                            Role = 1,
+                            UserName = "nelecusters"
+                        },
+                        new
+                        {
+                            UserNumber = 18,
+                            FirstName = "Luc",
+                            LastName = "Doumen",
+                            Password = "1234",
+                            Role = 1,
+                            UserName = "lucdoumen"
+                        },
+                        new
+                        {
+                            UserNumber = 19,
+                            FirstName = "Kris",
+                            LastName = "Hermans",
+                            Password = "1234",
+                            Role = 1,
+                            UserName = "krishermans"
+                        },
+                        new
+                        {
+                            UserNumber = 20,
+                            FirstName = "Dries",
+                            LastName = "Swinnen",
+                            Password = "1234",
+                            Role = 1,
+                            UserName = "driesswinnen"
+                        },
+                        new
+                        {
+                            UserNumber = 21,
+                            FirstName = "Niek",
+                            LastName = "Vandael",
+                            Password = "1234",
+                            Role = 1,
+                            UserName = "niekvandael"
+                        },
+                        new
+                        {
+                            UserNumber = 22,
+                            FirstName = "Jan",
+                            LastName = "Willekens",
+                            Password = "1234",
+                            Role = 1,
+                            UserName = "janwillekens"
+                        },
+                        new
+                        {
+                            UserNumber = 23,
+                            FirstName = "Nathalie",
+                            LastName = "Fuchs",
+                            Password = "1234",
+                            Role = 0,
+                            UserName = "nathaliefuchs"
                         });
                 });
 
-            modelBuilder.Entity("Presences.Domain.MomentStudent", b =>
+            modelBuilder.Entity("Presences.Domain.Admin", b =>
                 {
-                    b.HasOne("Presences.Domain.Moment", null)
-                        .WithMany("MomentStudents")
-                        .HasForeignKey("MomentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("Presences.Domain.User", "User")
+                        .WithOne()
+                        .HasForeignKey("Presences.Domain.Admin", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
-                    b.HasOne("Presences.Domain.Student", null)
-                        .WithMany("MomentStudents")
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Presences.Domain.Lector", b =>
+                {
+                    b.HasOne("Presences.Domain.User", "User")
+                        .WithOne()
+                        .HasForeignKey("Presences.Domain.Lector", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Presences.Domain.Moment", b =>
                 {
-                    b.Navigation("MomentStudents");
+                    b.HasOne("Presences.Domain.Lector", "Lector")
+                        .WithMany("OwnedMoments")
+                        .HasForeignKey("LectorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Lector");
+                });
+
+            modelBuilder.Entity("Presences.Domain.Presence", b =>
+                {
+                    b.HasOne("Presences.Domain.Moment", "Moment")
+                        .WithMany()
+                        .HasForeignKey("MomentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Presences.Domain.Student", "Student")
+                        .WithMany("Presences")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Moment");
+
+                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("Presences.Domain.Student", b =>
                 {
-                    b.Navigation("MomentStudents");
+                    b.HasOne("Presences.Domain.User", "User")
+                        .WithOne()
+                        .HasForeignKey("Presences.Domain.Student", "Id")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Presences.Domain.Lector", b =>
+                {
+                    b.Navigation("OwnedMoments");
+                });
+
+            modelBuilder.Entity("Presences.Domain.Student", b =>
+                {
+                    b.Navigation("Presences");
                 });
 #pragma warning restore 612, 618
         }

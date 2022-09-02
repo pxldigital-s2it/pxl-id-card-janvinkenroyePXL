@@ -1,13 +1,11 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Identity;
+﻿using Presences.Domain.Interfaces;
 
-namespace Presences.Domain
+namespace Presences.Domain;
+
+public class Student : IEntity
 {
-    public class Student : IdentityUser<int>
-    {
-        [Required] public string FirstName { get; set; }
-        [Required] public string LastName { get; set; }
-        public virtual List<MomentStudent> MomentStudents { get; set; }
-    }
+    public int Id { get; set; }
+    public int UserNumber { get; set; }
+    public virtual User? User { get; set; }
+    public ICollection<Presence> Presences { get; set; } = new List<Presence>();
 }

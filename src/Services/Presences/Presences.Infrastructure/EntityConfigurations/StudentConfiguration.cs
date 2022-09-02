@@ -1,98 +1,109 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Presences.Domain;
+using System.Reflection.Emit;
 
-namespace Presences.Infrastructure
+namespace Presences.Infrastructure.EntityConfigurations;
+
+internal class StudentConfiguration : IEntityTypeConfiguration<Student>
 {
-    internal class StudentConfiguration : IEntityTypeConfiguration<Student>
+    public void Configure(EntityTypeBuilder<Student> builder)
     {
-        public void Configure(EntityTypeBuilder<Student> builder)
-        {
-            builder.HasData(
-                new Student()
-                {
-                    Id = 50317565,
-                    UserName = "jochembeckers",
-                    FirstName = "Jochem",
-                    LastName = "Beckers",
-                },
-                new Student()
-                {
-                    Id = 50531122,
-                    UserName = "pietergeerts",
-                    FirstName = "Pieter",
-                    LastName = "Geerts",
-                },
-                new Student()
-                {
-                    Id = 84082214,
-                    UserName = "chrisgoyens",
-                    FirstName = "Chris",
-                    LastName = "Goyens",
-                },
-                new Student()
-                {
-                    Id = 49014562,
-                    UserName = "stevenjacquemin",
-                    FirstName = "Steven",
-                    LastName = "Jacquemin",
-                },
-                new Student()
-                {
-                    Id = 91813987,
-                    UserName = "geoffreyjorissen",
-                    FirstName = "Geoffrey",
-                    LastName = "Jorissen",
-                },
-                 new Student()
-                 {
-                     Id = 63117126,
-                     UserName = "robjorissen",
-                     FirstName = "Rob",
-                     LastName = "Jorissen",
-                 },
-                new Student()
-                {
-                    Id = 30441858,
-                    UserName = "sigridmeesters",
-                    FirstName = "Sigrid",
-                    LastName = "Meesters",
-                },
-                new Student()
-                {
-                    Id = 52449732,
-                    UserName = "wouterpaps",
-                    FirstName = "Wouter",
-                    LastName = "Paps",
-                },
-                new Student()
-                {
-                    Id = 15559621,
-                    UserName = "robbyquintiens",
-                    FirstName = "Robby",
-                    LastName = "Quintiens",
-                },
-                new Student()
-                {
-                    Id = 46559947,
-                    UserName = "nadinevaesen",
-                    FirstName = "Nadine",
-                    LastName = "Vaesen",
-                },
-                new Student()
-                {
-                    Id = 11903691,
-                    UserName = "janvinkenroye",
-                    FirstName = "Jan",
-                    LastName = "Vinkenroye",
-                },
-                new Student()
-                {
-                    Id = 97305845,
-                    UserName = "jeffwillen",
-                    FirstName = "Jeff",
-                    LastName = "Willen",
-                });
-        }
+        builder.ToTable("students");
+
+        builder
+            .HasKey(s => s.Id);
+
+        builder.Property(s => s.Id)
+                .HasColumnName("id")
+                .ValueGeneratedOnAdd();
+
+        builder.HasOne(s => s.User)
+            .WithOne()
+            .HasForeignKey<Student>(s => s.Id)
+            .OnDelete(DeleteBehavior.ClientCascade);
+
+        builder.HasData(
+            new Student()
+            {
+                Id = 1,
+                UserNumber = 1,
+            },
+            new Student()
+            {
+                Id = 2,
+                UserNumber = 2,
+            },
+            new Student()
+            {
+                Id = 3,
+                UserNumber = 3,
+            },
+            new Student()
+            {
+                Id = 4,
+                UserNumber = 4,
+            },
+            new Student()
+            {
+                Id = 5,
+                UserNumber = 5,
+            },
+            new Student()
+            {
+                Id = 6,
+                UserNumber = 6,
+            },
+            new Student()
+            {
+                Id = 7,
+                UserNumber = 7,
+            },
+            new Student()
+            {
+                Id = 8,
+                UserNumber = 8,
+            },
+            new Student()
+            {
+                Id = 9,
+                UserNumber = 9,
+            },
+            new Student()
+            {
+                Id = 10,
+                UserNumber = 10,
+            },
+            new Student()
+            {
+                Id = 11,
+                UserNumber = 11,
+            },
+            new Student()
+            {
+                Id = 12,
+                UserNumber = 12,
+            },
+            new Student()
+            {
+                Id = 13,
+                UserNumber = 13,
+            },
+            new Student()
+            {
+                Id = 14,
+                UserNumber = 14,
+            },
+            new Student()
+            {
+                Id = 15,
+                UserNumber = 15,
+            },
+            new Student()
+            {
+                Id = 16,
+                UserNumber = 16,
+            }
+        );
     }
 }
