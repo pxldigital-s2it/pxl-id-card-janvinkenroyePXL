@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.4.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Polly" Version="7.2.3" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
+    <PackageReference Include="Xam.Plugins.Messaging" Version="5.2.0" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\LectorMoment\LectorMomentDetailPage.xaml.cs">
+      <DependentUpon>LectorMomentDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\LectorMoment\LectorMomentsPage.xaml.cs">
+      <DependentUpon>LectorMomentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\StudentMoment\StudentMomentsPage.xaml.cs">
+      <DependentUpon>StudentMomentsPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

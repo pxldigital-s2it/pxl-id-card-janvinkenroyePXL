@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DigitalStudentCard.Core.Views.StudentMoment.StudentMomentsPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:DigitalStudentCard.Core.ViewModels.StudentMoment"  
+             xmlns:model="clr-namespace:DigitalStudentCard.Core.Models" 
+             x:DataType="local:StudentMomentsViewModel"
+             x:Name="BrowseStudentMomentsPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="QR Code" Command="{Binding ShowQRCodeCommand}" />
+    </ContentPage.ToolbarItems>
+    <!--
+      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
+      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
+    -->
+    <RefreshView x:DataType="local:StudentMomentsViewModel" Command="{Binding LoadMomentsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <CollectionView x:Name="StudentMomentsListView"
+                ItemsSource="{Binding Moments}"
+                SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10" x:DataType="model:Moment">
+                        <Label Text="{Binding Date}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                        <Label Text="{Binding Name}" 
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+                        <Label Text="{Binding Location}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                        <Label Text="{Binding Presences[0].IsBlanco}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>
