@@ -1,14 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:lectormoment="clr-namespace:DigitalStudentCard.Core.ViewModels.LectorMoment" 
+             xmlns:converters="clr-namespace:DigitalStudentCard.Core.Converters" xmlns:model="clr-namespace:DigitalStudentCard.Core.Models"
+             x:DataType="lectormoment:LectorMomentDetailViewModel"
              x:Class="DigitalStudentCard.Core.Views.LectorMoment.LectorMomentDetailPage"
              Title="{Binding Title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:DateTimeToStringConverter
+                x:Key="DateTimeToStringConverter"/>
+            <converters:IsBlancoToStringConverter
+                x:Key="IsBlancoToStringConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-    <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Text}" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Description}" FontSize="Small"/>
+    <StackLayout Spacing="5" Padding="15">
+        <Label Text="{Binding Date, Converter={StaticResource DateTimeToStringConverter}}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+        <Label Text="{Binding Name}" 
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="22" />
+        <Label Text="{Binding MomentType}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+        <Label Text="{Binding Location}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+        <Label Text="Aanwezige studenten:" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemTextStyle}"
+                            FontSize="19"
+                            Margin="0, 20, 0, 0" />
+        <CollectionView
+                ItemsSource="{Binding Presences}"
+                SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10" x:DataType="model:Presence" Orientation="Horizontal">
+                        <Label Text="{Binding Student.FullName}" 
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+                        <Label Text="{Binding IsBlanco, Converter={StaticResource IsBlancoToStringConverter}}" 
+                            LineBreakMode="NoWrap"
+                            HorizontalOptions="End"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </StackLayout>
     
 </ContentPage>

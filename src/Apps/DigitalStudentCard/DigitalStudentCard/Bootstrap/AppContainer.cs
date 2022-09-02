@@ -31,8 +31,6 @@ namespace DigitalStudentCard.Core.Bootstrap
             var builder = new ContainerBuilder();
 
             //ViewModels
-            builder.RegisterType<ItemsViewModel>();
-            builder.RegisterType<ItemDetailViewModel>();
             builder.RegisterType<LectorMomentDetailViewModel>();
             builder.RegisterType<LectorMomentsViewModel>();
             builder.RegisterType<LoginViewModel>();

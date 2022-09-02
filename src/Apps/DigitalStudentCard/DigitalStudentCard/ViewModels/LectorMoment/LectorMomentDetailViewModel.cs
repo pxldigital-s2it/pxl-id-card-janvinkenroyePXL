@@ -1,10 +1,9 @@
 ﻿using DigitalStudentCard.Core.DataStores.Contracts;
 using DigitalStudentCard.Core.Enums;
 using DigitalStudentCard.Core.Models;
-using DigitalStudentCard.Core.Services;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace DigitalStudentCard.Core.ViewModels.LectorMoment
@@ -18,6 +17,7 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
         private MomentType momentType;
         private DateTime date;
         private string location;
+        private ICollection<Presence> presences;
         public int Id { get; set; }
         public string Name
         {
@@ -43,6 +43,12 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
             set => SetProperty(ref location, value);
         }
 
+        public ICollection<Presence> Presences
+        {
+            get => presences;
+            set => SetProperty(ref presences, value);
+        }
+
         public int MomentId
         {
             get
@@ -66,6 +72,7 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
                 momentType = moment.MomentType;
                 Date = (DateTime)moment.Date;
                 Location = moment.Location;
+                Presences = moment.Presences;
             }
             catch (Exception)
             {

@@ -2,9 +2,9 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:DigitalStudentCard.Core.Views"
-       xmlns:local_item="clr-namespace:DigitalStudentCard.Core.Views.Item"
        xmlns:local_studentmoment="clr-namespace:DigitalStudentCard.Core.Views.StudentMoment"
-       xmlns:local_lectormoment="clr-namespace:DigitalStudentCard.Core.Views.LectorMoment"
+       xmlns:local_lectormoment="clr-namespace:DigitalStudentCard.Core.Views.LectorMoment" 
+       xmlns:converter="clr-namespace:DigitalStudentCard.Core.Converters"
        Title="DigitalStudentCard"
        x:Class="DigitalStudentCard.Core.AppShell">
 
@@ -73,6 +73,9 @@
                     </VisualStateGroupList>
                 </Setter>
             </Style>
+
+            <converter:DateTimeToStringConverter
+                x:Key="DateTimeToStringConverter"/>
         </ResourceDictionary>
     </Shell.Resources>
 
@@ -89,9 +92,6 @@
     </FlyoutItem>
     <FlyoutItem Title="Mijn Momenten" Icon="icon_feed.png">
         <ShellContent Route="LectorMomentsPage" ContentTemplate="{DataTemplate local_lectormoment:LectorMomentsPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="Mijn Items" Icon="icon_feed.png">
-        <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local_item:ItemsPage}" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->

@@ -1,8 +1,6 @@
-﻿using DigitalStudentCard.Core.ViewModels;
-using DigitalStudentCard.Core.Views;
-using DigitalStudentCard.Core.Views.Item;
+﻿using DigitalStudentCard.Core.Views.LectorMoment;
+using DigitalStudentCard.Core.Views.StudentMoment;
 using System;
-using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace DigitalStudentCard.Core
@@ -12,8 +10,8 @@ namespace DigitalStudentCard.Core
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            Routing.RegisterRoute(nameof(LectorMomentDetailPage), typeof(LectorMomentDetailPage));
+            Routing.RegisterRoute(nameof(QRCodePage), typeof(QRCodePage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

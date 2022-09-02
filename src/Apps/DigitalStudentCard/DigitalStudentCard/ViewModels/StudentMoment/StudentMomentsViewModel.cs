@@ -1,6 +1,8 @@
 ﻿using DigitalStudentCard.Core.DataStores.Contracts;
 using DigitalStudentCard.Core.Models;
-using DigitalStudentCard.Core.Services;
+using DigitalStudentCard.Core.ViewModels.LectorMoment;
+using DigitalStudentCard.Core.Views.LectorMoment;
+using DigitalStudentCard.Core.Views.StudentMoment;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -52,9 +54,9 @@ namespace DigitalStudentCard.Core.ViewModels.StudentMoment
             IsBusy = true;
         }
 
-        private void OnShowQRCode(object obj)
+        private async void OnShowQRCode(object obj)
         {
-            // await Shell.Current.GoToAsync(nameof(ShowQRCodePage));
+            await Shell.Current.GoToAsync($"{nameof(QRCodePage)}");
         }
     }
 }
