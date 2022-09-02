@@ -1,4 +1,5 @@
-﻿using DigitalStudentCard.Core.ViewModels;
+﻿using DigitalStudentCard.Core.Bootstrap;
+using DigitalStudentCard.Core.ViewModels;
 using DigitalStudentCard.Core.ViewModels.StudentMoment;
 using Xamarin.Forms;
 
@@ -6,13 +7,14 @@ namespace DigitalStudentCard.Core.Views.StudentMoment
 {
     public partial class StudentMomentsPage : ContentPage
     {
-        StudentMomentsViewModel _viewModel;
+        private readonly StudentMomentsViewModel _viewModel;
 
         public StudentMomentsPage()
         {
             InitializeComponent();
-
             BindingContext = _viewModel = new StudentMomentsViewModel();
+
+            // BindingContext = AppContainer.Instance.Resolve(_viewModel.GetType());
         }
 
         protected override void OnAppearing()

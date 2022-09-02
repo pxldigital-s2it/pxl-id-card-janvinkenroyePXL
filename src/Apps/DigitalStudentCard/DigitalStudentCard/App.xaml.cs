@@ -10,9 +10,11 @@ namespace DigitalStudentCard.Core
         {
             InitializeComponent();
 
+            // AppContainer.Instance.RegisterDependencies();
             DependencyService.Register<MockPresenceDataStore>();
             DependencyService.Register<MockStudentDataStore>();
             DependencyService.Register<MockMomentDataStore>();
+
             MainPage = new AppShell();
         }
 

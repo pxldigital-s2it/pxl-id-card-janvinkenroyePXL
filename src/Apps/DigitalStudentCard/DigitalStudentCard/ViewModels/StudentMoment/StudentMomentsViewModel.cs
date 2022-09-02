@@ -1,7 +1,5 @@
 ﻿using DigitalStudentCard.Core.DataStores.Contracts;
 using DigitalStudentCard.Core.Models;
-using DigitalStudentCard.Core.ViewModels.LectorMoment;
-using DigitalStudentCard.Core.Views.LectorMoment;
 using DigitalStudentCard.Core.Views.StudentMoment;
 using System;
 using System.Collections.ObjectModel;

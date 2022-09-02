@@ -3,8 +3,6 @@ using DigitalStudentCard.Core.ViewModels;
 using DigitalStudentCard.Core.ViewModels.LectorMoment;
 using DigitalStudentCard.Core.ViewModels.StudentMoment;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DigitalStudentCard.Core.Bootstrap
 {
@@ -26,7 +24,7 @@ namespace DigitalStudentCard.Core.Bootstrap
             RegisterDependencies();
         }
 
-        private void RegisterDependencies()
+        public void RegisterDependencies()
         {
             var builder = new ContainerBuilder();
 
@@ -35,28 +33,7 @@ namespace DigitalStudentCard.Core.Bootstrap
             builder.RegisterType<LectorMomentsViewModel>();
             builder.RegisterType<LoginViewModel>();
             builder.RegisterType<StudentMomentsViewModel>();
-            builder.RegisterType<StudentMomentItemViewModel>();
 
-            /*
-            //services - data
-            builder.RegisterType<CatalogDataService>().As<ICatalogDataService>();
-            builder.RegisterType<ShoppingCartDataService>().As<IShoppingCartDataService>();
-            builder.RegisterType<ContactDataService>().As<IContactDataService>();
-            builder.RegisterType<OrderDataService>().As<IOrderDataService>();
-            */
-
-            /*
-            //services - general
-            builder.RegisterType<ConnectionService>().As<IConnectionService>();
-            builder.RegisterType<NavigationService>().As<INavigationService>();
-            builder.RegisterType<AuthenticationService>().As<IAuthenticationService>();
-            builder.RegisterType<DialogService>().As<IDialogService>();
-            builder.RegisterType<PhoneService>().As<IPhoneService>();
-            builder.RegisterType<SettingsService>().As<ISettingsService>().SingleInstance();
-            */
-
-            //General
-            // builder.RegisterType<GenericRepository>().As<IGenericRepository>();
             builder.Register(c => Instance).As<IDependencyResolver>();
 
             _container = builder.Build();
