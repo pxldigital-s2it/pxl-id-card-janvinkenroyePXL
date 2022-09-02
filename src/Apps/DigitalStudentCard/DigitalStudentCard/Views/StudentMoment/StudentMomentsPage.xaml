@@ -12,6 +12,8 @@
         <ResourceDictionary>
             <converters:DateTimeToStringConverter
                 x:Key="DateTimeToStringConverter"/>
+            <converters:IsBlancoToStringConverter
+                x:Key="IsBlancoToStringConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 

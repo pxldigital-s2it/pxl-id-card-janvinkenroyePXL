@@ -11,8 +11,7 @@ namespace DigitalStudentCard.Core
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(LectorMomentDetailPage), typeof(LectorMomentDetailPage));
-            Routing.RegisterRoute(nameof(ShowQRCodePage), typeof(ShowQRCodePage));
-            Routing.RegisterRoute(nameof(ScanQRCodePage), typeof(ScanQRCodePage));
+            Routing.RegisterRoute(nameof(QRCodePage), typeof(QRCodePage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
