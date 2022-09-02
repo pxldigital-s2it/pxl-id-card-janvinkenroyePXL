@@ -21,7 +21,7 @@ namespace DigitalStudentCard.Core.DataStores
                     Id = 1,
                     Name = "Examen .NET Expert",
                     MomentType = MomentType.Exam,
-                    Date = DateTime.Now.AddMinutes(new Random().Next(20000)),
+                    Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
                     Location = "Lokaal B0.01",
                     Presences = new List<Presence>
                     {
@@ -68,7 +68,7 @@ namespace DigitalStudentCard.Core.DataStores
                     Id = 2,
                     Name = "PE .NET Expert",
                     MomentType = MomentType.PE,
-                    Date = DateTime.Now.AddMinutes(new Random().Next(20000)),
+                    Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
                     Location = "Online",
                     Presences = new List<Presence>
                     {
@@ -127,7 +127,7 @@ namespace DigitalStudentCard.Core.DataStores
                     Id = 3,
                     Name = "Examen Web Expert",
                     MomentType = MomentType.Exam,
-                    Date = DateTime.Now.AddMinutes(new Random().Next(20000)),
+                    Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
                     Location = "Lokaal F3.03",
                 }
             };

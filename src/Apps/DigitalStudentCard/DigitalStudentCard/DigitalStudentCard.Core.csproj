@@ -9,11 +9,12 @@
     <PackageReference Include="Autofac" Version="6.4.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Polly" Version="7.2.3" />
+    <PackageReference Include="QRCoder" Version="1.4.3" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
-    <PackageReference Include="Xam.Plugins.Messaging" Version="5.2.0" />
-    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.4" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />  
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,8 +24,24 @@
     <Compile Update="Views\LectorMoment\LectorMomentsPage.xaml.cs">
       <DependentUpon>LectorMomentsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\LectorMoment\ScanQRCodePage.xaml.cs">
+      <DependentUpon>ScanQRCodePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\StudentMoment\ShowQRCodePage.xaml.cs">
+      <DependentUpon>ShowQRCodePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\StudentMoment\StudentMomentsPage.xaml.cs">
       <DependentUpon>StudentMomentsPage.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\LectorMoment\ScanQRCodePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\Contracts\General\" />
   </ItemGroup>
 </Project>

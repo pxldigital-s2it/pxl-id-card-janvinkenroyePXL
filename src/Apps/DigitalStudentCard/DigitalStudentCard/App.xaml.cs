@@ -1,5 +1,4 @@
 ﻿using DigitalStudentCard.Core.DataStores;
-using DigitalStudentCard.Core.Services;
 using Xamarin.Forms;
 
 namespace DigitalStudentCard.Core
@@ -11,7 +10,6 @@ namespace DigitalStudentCard.Core
         {
             InitializeComponent();
 
-            DependencyService.Register<MockItemDataStore>();
             DependencyService.Register<MockPresenceDataStore>();
             DependencyService.Register<MockStudentDataStore>();
             DependencyService.Register<MockMomentDataStore>();

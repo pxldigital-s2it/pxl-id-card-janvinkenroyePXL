@@ -1,7 +1,5 @@
 ﻿using DigitalStudentCard.Core.DataStores.Contracts;
 using DigitalStudentCard.Core.Models;
-using DigitalStudentCard.Core.Services;
-using DigitalStudentCard.Core.Views;
 using DigitalStudentCard.Core.Views.LectorMoment;
 using System;
 using System.Collections.ObjectModel;
@@ -70,11 +68,6 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
             }
         }
         
-        private void OnAddMoment(object obj)
-        {
-            // await Shell.Current.GoToAsync(nameof(ShowQRCodePage));
-        }
-
         async void OnMomentSelected(Moment moment)
         {
             if (moment == null)
@@ -83,9 +76,9 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
             // This will push the MomentDetailPage onto the navigation stack
             await Shell.Current.GoToAsync($"{nameof(LectorMomentDetailPage)}?{nameof(LectorMomentDetailViewModel.MomentId)}={moment.Id}");
         }
-        private void OnScanQRCode(object obj)
+        private async void OnScanQRCode(object obj)
         {
-            // await Shell.Current.GoToAsync(nameof(ScanQRCodePage));
+            await Shell.Current.GoToAsync(nameof(ScanQRCodePage));
         }
     }
 }
