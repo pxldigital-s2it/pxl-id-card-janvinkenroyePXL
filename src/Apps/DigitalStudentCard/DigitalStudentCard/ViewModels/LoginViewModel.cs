@@ -17,10 +17,6 @@ namespace DigitalStudentCard.Core.ViewModels
         private string _userName;
         private string _password;
 
-        public LoginViewModel()
-        {
-        }
-
         public LoginViewModel(IAuthenticationService authenticationService, IAlertService alertService)
             : base()
         {
@@ -50,6 +46,11 @@ namespace DigitalStudentCard.Core.ViewModels
                 _password = value;
                 OnPropertyChanged();
             }
+        }
+
+        internal void OnAppearing()
+        {
+            IsBusy = true;
         }
 
         private async void OnLogin()

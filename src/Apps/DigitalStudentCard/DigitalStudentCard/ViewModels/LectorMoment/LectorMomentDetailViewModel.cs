@@ -79,5 +79,10 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
                 Debug.WriteLine("Failed to Load Item");
             }
         }
+
+        internal void OnAppearing()
+        {
+            // IsBusy = true;
+        }
     }
 }

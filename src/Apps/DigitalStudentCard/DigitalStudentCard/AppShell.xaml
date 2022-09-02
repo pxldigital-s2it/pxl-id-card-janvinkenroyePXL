@@ -8,12 +8,6 @@
        Title="DigitalStudentCard"
        x:Class="DigitalStudentCard.Core.AppShell">
 
-    <!--
-        The overall app visual hierarchy is defined here, along with navigation.
-    
-        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
-    -->
-
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
@@ -76,9 +70,9 @@
 
             <converter:DateTimeToStringConverter
                 x:Key="DateTimeToStringConverter"/>
+
         </ResourceDictionary>
     </Shell.Resources>
-
     <!-- 
         When the Flyout is visible this defines the content to display in the flyout.
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    

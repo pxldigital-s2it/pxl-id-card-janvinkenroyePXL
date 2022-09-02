@@ -1,4 +1,5 @@
-﻿using QRCoder;
+﻿using DigitalStudentCard.Core.Services.Contracts.General;
+using QRCoder;
 using System.IO;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -6,7 +7,7 @@ using ZXing.Mobile;
 
 namespace DigitalStudentCard.Core.Services.General
 {
-    public class QRCodeService
+    public class QRCodeService : IQRCodeService
     {
         private QRCodeGenerator _qrGenerator;
         public QRCodeService()

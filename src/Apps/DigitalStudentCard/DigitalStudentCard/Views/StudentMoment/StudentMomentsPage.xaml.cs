@@ -12,15 +12,17 @@ namespace DigitalStudentCard.Core.Views.StudentMoment
         public StudentMomentsPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = new StudentMomentsViewModel();
 
-            // BindingContext = AppContainer.Instance.Resolve(_viewModel.GetType());
+            BindingContext = _viewModel = 
+                (StudentMomentsViewModel)AppContainer.Instance.Resolve(typeof(StudentMomentsViewModel));
         }
 
+        
         protected override void OnAppearing()
         {
             base.OnAppearing();
             _viewModel.OnAppearing();
         }
+        
     }
 }

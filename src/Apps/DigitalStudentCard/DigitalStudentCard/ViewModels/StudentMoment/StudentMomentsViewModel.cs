@@ -1,6 +1,6 @@
 ﻿using DigitalStudentCard.Core.DataStores.Contracts;
 using DigitalStudentCard.Core.Models;
-using DigitalStudentCard.Core.Views.StudentMoment;
+using DigitalStudentCard.Core.Views.QRCode;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;

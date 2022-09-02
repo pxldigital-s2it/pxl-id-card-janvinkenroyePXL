@@ -1,8 +1,16 @@
 ﻿using Autofac;
+using DigitalStudentCard.Core.DataStores;
+using DigitalStudentCard.Core.Repositories.Contracts;
+using DigitalStudentCard.Core.Repositories;
+using DigitalStudentCard.Core.Services.Contracts.Data;
+using DigitalStudentCard.Core.Services.Contracts.General;
+using DigitalStudentCard.Core.Services.Data;
+using DigitalStudentCard.Core.Services.General;
 using DigitalStudentCard.Core.ViewModels;
 using DigitalStudentCard.Core.ViewModels.LectorMoment;
 using DigitalStudentCard.Core.ViewModels.StudentMoment;
 using System;
+using DigitalStudentCard.Core.ViewModels.QRCode;
 
 namespace DigitalStudentCard.Core.Bootstrap
 {
@@ -33,7 +41,26 @@ namespace DigitalStudentCard.Core.Bootstrap
             builder.RegisterType<LectorMomentsViewModel>();
             builder.RegisterType<LoginViewModel>();
             builder.RegisterType<StudentMomentsViewModel>();
+            builder.RegisterType<QRCodeViewModel>();
 
+            //MockDataStores
+            builder.RegisterType<MockPresenceDataStore>();
+            builder.RegisterType<MockStudentDataStore>();
+            builder.RegisterType<MockMomentDataStore>();
+
+            //services - auth
+            builder.RegisterType<AuthenticationService>().As<IAuthenticationService>();
+
+            //services - data
+            builder.RegisterType<MomentDataService>().As<IMomentDataService>();
+            builder.RegisterType<PresenceDataService>().As<IPresenceDataService>();
+
+            //services - general
+            builder.RegisterType<AlertService>().As<IAlertService>();
+            builder.RegisterType<QRCodeService>().As<IQRCodeService>();
+
+            //General
+            builder.RegisterType<GenericRepository>().As<IGenericRepository>();
             builder.Register(c => Instance).As<IDependencyResolver>();
 
             _container = builder.Build();

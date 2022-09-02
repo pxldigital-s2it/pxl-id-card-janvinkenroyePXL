@@ -1,5 +1,5 @@
 ﻿using DigitalStudentCard.Core.Views.LectorMoment;
-using DigitalStudentCard.Core.Views.StudentMoment;
+using DigitalStudentCard.Core.Views.QRCode;
 using System;
 using Xamarin.Forms;
 

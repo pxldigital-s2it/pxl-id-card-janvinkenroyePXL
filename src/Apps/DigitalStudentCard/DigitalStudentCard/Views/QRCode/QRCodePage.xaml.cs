@@ -1,24 +1,22 @@
 ﻿using DigitalStudentCard.Core.Bootstrap;
-using DigitalStudentCard.Core.ViewModels;
-using DigitalStudentCard.Core.ViewModels.StudentMoment;
+using DigitalStudentCard.Core.ViewModels.QRCode;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace DigitalStudentCard.Core.Views
+namespace DigitalStudentCard.Core.Views.QRCode
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class QRCodePage : ContentPage
     {
-        private readonly LoginViewModel _viewModel;
+        private readonly QRCodeViewModel _viewModel;
 
-        public LoginPage()
+        public QRCodePage()
         {
             InitializeComponent();
 
             BindingContext = _viewModel =
-                (LoginViewModel)AppContainer.Instance.Resolve(typeof(LoginViewModel));
+                (QRCodeViewModel)AppContainer.Instance.Resolve(typeof(QRCodeViewModel));
         }
-
 
         protected override void OnAppearing()
         {
