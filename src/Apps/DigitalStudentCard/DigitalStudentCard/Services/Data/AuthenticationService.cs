@@ -2,19 +2,17 @@
 using DigitalStudentCard.Core.Models;
 using DigitalStudentCard.Core.Repositories.Contracts;
 using DigitalStudentCard.Core.Services.Contracts.Data;
-using DigitalStudentCard.Core.Services.Contracts.General;
 using System;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace DigitalStudentCard.Core.Services.Data
 {
     internal class AuthenticationService : IAuthenticationService
     {
         private readonly IGenericRepository _genericRepository;
-        private readonly ISettingsService _settingsService;
-        public AuthenticationService(IGenericRepository genericRepository, ISettingsService settingsService)
+        public AuthenticationService(IGenericRepository genericRepository)
         {
-            _settingsService = settingsService;
             _genericRepository = genericRepository;
 
         }
@@ -33,10 +31,9 @@ namespace DigitalStudentCard.Core.Services.Data
 
             return await _genericRepository.PostAsync<AuthenticationRequest, AuthenticationResponse>(builder.ToString(), authenticationRequest);
         }
-
         public bool IsUserAuthenticated()
         {
-            return !string.IsNullOrEmpty(_settingsService.UserIdSetting);
+            return Preferences.ContainsKey("UserId");
         }
 
         /*

@@ -5,8 +5,16 @@
              Title="{Binding Title}"
              xmlns:local="clr-namespace:DigitalStudentCard.Core.ViewModels.StudentMoment"  
              xmlns:model="clr-namespace:DigitalStudentCard.Core.Models" 
+             xmlns:converters="clr-namespace:DigitalStudentCard.Core.Converters"
              x:DataType="local:StudentMomentsViewModel"
              x:Name="BrowseStudentMomentsPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:DateTimeToStringConverter
+                x:Key="DateTimeToStringConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="QR Code" Command="{Binding ShowQRCodeCommand}" />
@@ -22,7 +30,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Padding="10" x:DataType="model:Moment">
-                        <Label Text="{Binding Date}" 
+                        <Label Text="{Binding Date, Converter={StaticResource DateTimeToStringConverter}}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
