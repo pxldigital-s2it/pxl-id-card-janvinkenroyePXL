@@ -17,11 +17,5 @@ namespace DigitalStudentCard.Core.Views.QRCode
             BindingContext = _viewModel =
                 (QRCodeViewModel)AppContainer.Instance.Resolve(typeof(QRCodeViewModel));
         }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            _viewModel.OnAppearing();
-        }
     }
 }

@@ -73,7 +73,6 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
             if (moment == null)
                 return;
 
-            // This will push the MomentDetailPage onto the navigation stack
             await Shell.Current.GoToAsync($"{nameof(LectorMomentDetailPage)}?{nameof(LectorMomentDetailViewModel.MomentId)}={moment.Id}");
         }
         private void OnScanQRCode(object obj)

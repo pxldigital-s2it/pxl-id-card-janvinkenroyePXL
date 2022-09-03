@@ -43,7 +43,7 @@
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
-                        <Label Text="{Binding Presences[0].IsBlanco}" 
+                        <Label Text="{Binding Presences[0].IsBlanco, Converter={StaticResource IsBlancoToStringConverter }}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />

@@ -1,5 +1,6 @@
 ﻿using DigitalStudentCard.Core.DataStores.Contracts;
 using DigitalStudentCard.Core.Models;
+using DigitalStudentCard.Core.ViewModels.QRCode;
 using DigitalStudentCard.Core.Views.QRCode;
 using System;
 using System.Collections.ObjectModel;
@@ -54,7 +55,7 @@ namespace DigitalStudentCard.Core.ViewModels.StudentMoment
 
         private async void OnShowQRCode(object obj)
         {
-            await Shell.Current.GoToAsync($"{nameof(QRCodePage)}");
+            await Shell.Current.GoToAsync($"{nameof(QRCodePage)}?{nameof(QRCodeViewModel.UserNumber)}=1");
         }
     }
 }

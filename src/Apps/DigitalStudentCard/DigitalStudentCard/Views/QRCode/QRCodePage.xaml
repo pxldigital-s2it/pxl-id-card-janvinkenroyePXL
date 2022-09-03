@@ -4,9 +4,7 @@
              x:Class="DigitalStudentCard.Core.Views.QRCode.QRCodePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Image Source="{Binding QRCodeImage}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

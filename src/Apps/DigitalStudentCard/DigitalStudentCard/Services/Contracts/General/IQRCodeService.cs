@@ -3,7 +3,7 @@ using Xamarin.Forms;
 
 namespace DigitalStudentCard.Core.Services.Contracts.General
 {
-    internal interface IQRCodeService
+    public interface IQRCodeService
     {
         ImageSource GenerateQRCode(string plainText);
         Task<string> ScanQRCode();
