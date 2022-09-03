@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Presences.DataTransfer;
 using Presences.Domain;
+using Presences.Logic.IRepositories;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -12,23 +14,28 @@ namespace Presences.Api.Controllers;
 public class AuthenticationController : ControllerBase
 {
     private readonly IConfiguration _configuration;
+    private readonly IUserRepository _userRepository;
 
-    public AuthenticationController(IConfiguration configuration)
+    public AuthenticationController(IConfiguration configuration, IUserRepository userRepository)
     {
         _configuration = configuration ??
             throw new ArgumentNullException(nameof(configuration));
+        _userRepository = userRepository ?? 
+            throw new ArgumentNullException(nameof(userRepository));
     }
 
     [HttpPost("authenticate")]
     public ActionResult<string> Authenticate(
         AuthenticationRequestBody authenticationRequestBody)
     {
-        // Step 1: validate the username/password
-        var user = ValidateUserCredentials(
-            authenticationRequestBody.UserName,
-            authenticationRequestBody.Password);
+        if (authenticationRequestBody.UserName == null || authenticationRequestBody.Password == null)
+        {
+            return BadRequest();
+        }
 
-        if (user == null)
+        // Step 1: validate the username/password
+        var user = _userRepository.GetByUserName(authenticationRequestBody.UserName);
+        if (user == null || user.Password != authenticationRequestBody.Password)
         {
             return Unauthorized();
         }
@@ -54,24 +61,22 @@ public class AuthenticationController : ControllerBase
         var tokenToReturn = new JwtSecurityTokenHandler()
            .WriteToken(jwtSecurityToken);
 
-        return Ok(tokenToReturn);
-    }
-
-    private User ValidateUserCredentials(string? userName, string? password)
-    {
-        // we don't have a user DB or table.  If you have, check the passed-through
-        // username/password against what's stored in the database.
-        //
-        // For demo purposes, we assume the credentials are valid
-
-        // return a new CityInfoUser (values would normally come from your user DB/table)
-        return new User()
+        var response = new AuthenticationResponse()
         {
-            UserNumber = 1,
-            UserName = userName ?? "",
-            FirstName = "Kevin",
-            LastName = "Dockx",
+            Token = tokenToReturn,
+            IsAuthenticated = true,
+            User = new User
+            {
+                UserName = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Role = user.Role,
+                UserNumber = user.UserNumber
+            }
         };
+
+        return Ok(response);
     }
 
     public class AuthenticationRequestBody

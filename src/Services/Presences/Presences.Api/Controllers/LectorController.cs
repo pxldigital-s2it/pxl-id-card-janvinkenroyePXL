@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Presences.DataTransfer;
+using Presences.Domain;
 using Presences.Logic.IRepositories;
 
 namespace Presences.Api.Controllers;
@@ -23,7 +23,7 @@ public class LectorController : ControllerBase
     }
 
     [HttpGet("{id}/moments")]
-    public async Task<ActionResult<IEnumerable<MomentDto>>> GetMomentsForALector(int id)
+    public async Task<ActionResult<IEnumerable<Moment>>> GetMomentsForALector(int id)
     {
         if (id <= 0)
         {
@@ -34,12 +34,8 @@ public class LectorController : ControllerBase
             return NotFound();
         }
         var moments = await _momentRepository.GetMomentsForALectorAsync(id);
-        var momentDtos = new List<MomentDto>();
-        foreach (var moment in moments)
-        {
-            momentDtos.Add(_mapper.Map<MomentDto>(moment));
-        }
-        return Ok(momentDtos);
+
+        return Ok(moments);
     }
 
 

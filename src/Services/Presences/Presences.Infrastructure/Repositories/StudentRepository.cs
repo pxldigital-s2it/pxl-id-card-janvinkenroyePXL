@@ -34,8 +34,7 @@ internal class StudentRepository : GenericRepository<Student>, IStudentRepositor
         var student = await GetByIDAsync(id);
         if (student != null)
         {
-            student.Presences.Add(newPresence);
-            Save();
+            _presencesContext.Presences.Add(newPresence);
         }
     }
 }

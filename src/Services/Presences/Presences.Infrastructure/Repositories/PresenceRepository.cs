@@ -18,7 +18,6 @@ internal class PresenceRepository : GenericRepository<Presence>, IPresenceReposi
         return await _presencesContext.Presences
             .Where(p => p.StudentId == studentId)
             .Include(p => p.Moment)
-            .Include(p => p.Student)
             .ToListAsync();
     }
 }
