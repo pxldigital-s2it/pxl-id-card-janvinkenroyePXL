@@ -39,6 +39,7 @@ internal class MomentRepository : GenericRepository<Moment>, IMomentRepository
             .Where(m => m.Id == id)
             .Include(m => m.Presences)
             .ThenInclude(p => p.Student)
+            .ThenInclude(s => s.User)
             .SingleOrDefaultAsync();
     }
 }
