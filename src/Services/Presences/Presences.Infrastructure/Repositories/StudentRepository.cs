@@ -42,4 +42,12 @@ internal class StudentRepository : GenericRepository<Student>, IStudentRepositor
     {
         return await _presencesContext.Students.AnyAsync(a => a.UserNumber == userNumber);
     }
+
+    public async Task<IEnumerable<Student>> GetAbsentStudentsByMomentID(int momentId)
+    {
+        return await _presencesContext.Students
+            .Include(s => s.User)
+            .Where(s => s.Presences.All(p => p.MomentId != momentId))
+            .ToListAsync();
+    }
 }
