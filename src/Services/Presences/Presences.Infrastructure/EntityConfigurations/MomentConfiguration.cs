@@ -45,7 +45,7 @@ internal class MomentConfiguration : IEntityTypeConfiguration<Moment>
             new Moment()
             {
                 Id = 1,
-                Name = "PE Web Expert",
+                Name = "PE .NET Expert",
                 MomentType = Domain.Enums.MomentType.PE,
                 Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
                 Location = "Online",
@@ -131,6 +131,24 @@ internal class MomentConfiguration : IEntityTypeConfiguration<Moment>
                 Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
                 Location = "Online",
                 LectorId = 5
+            },
+            new Moment()
+            {
+                Id = 11,
+                Name = "Examen .NET Expert",
+                MomentType = Domain.Enums.MomentType.Exam,
+                Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
+                Location = "Online",
+                LectorId = 3
+            },
+            new Moment()
+            {
+                Id = 12,
+                Name = "Inhaalexamen .NET Expert",
+                MomentType = Domain.Enums.MomentType.Exam,
+                Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
+                Location = "Lokaal 7",
+                LectorId = 3
             });
     }
 }
