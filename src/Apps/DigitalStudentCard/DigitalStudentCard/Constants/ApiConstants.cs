@@ -6,7 +6,7 @@
         public static string ApiUrl = $"{Scheme}://{BaseUrl}:{ApiPort}";
         // public static string ApiUrl = $"{Scheme}://{BaseUrl}:{ImagesPort}/{ImagesPrefix}";
 
-        public const string Scheme = "http"; // or https
+        public const string Scheme = "http"; // http or https
         public const string BaseUrl = "192.168.0.129";
         public const string ApiPort = "5000"; // 5000 for http, 5001 for https
         // public const string ImagesPort = "5002"; 

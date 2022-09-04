@@ -1,12 +1,12 @@
 ﻿using DigitalStudentCard.Core.Models;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace DigitalStudentCard.Core.Services.Contracts.Data
 {
     public interface IMomentDataService
     {
-        Task<IEnumerable<Moment>> GetLectorMomentsAsync(int lectorId);
-        Task<IEnumerable<Moment>> GetStudentMomentsAsync(int studentId);
+        Task<ObservableCollection<Moment>> GetLectorMomentsAsync(int lectorId);
+        Task<ObservableCollection<Moment>> GetStudentMomentsAsync(int studentId);
     }
 }

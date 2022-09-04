@@ -93,18 +93,18 @@ public class StudentController : ControllerBase
         return BadRequest();
     }
 
-    [HttpGet("{id}/moments")]
-    public async Task<ActionResult<IEnumerable<Moment>>> GetStudentMoments(int id)
+    [HttpGet("{userNumber}/moments")]
+    public async Task<ActionResult<IEnumerable<Moment>>> GetStudentMoments(int userNumber)
     {
-        if (id <= 0)
+        if (userNumber <= 0)
         {
             return BadRequest();
         }
-        if (!await _studentRepository.ExistsAsync(id))
+        if (!await _studentRepository.ExistsUserNumberAsync(userNumber))
         {
             return NotFound();
         }
-        var moments = await _momentRepository.GetMomentsForAStudentAsync(id);
+        var moments = await _momentRepository.GetMomentsForAStudentAsync(userNumber);
         return Ok(moments);
     }
 }

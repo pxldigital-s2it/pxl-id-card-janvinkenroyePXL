@@ -1,5 +1,5 @@
-﻿using DigitalStudentCard.Core.DataStores.Contracts;
-using DigitalStudentCard.Core.Models;
+﻿using DigitalStudentCard.Core.Models;
+using DigitalStudentCard.Core.Services.Contracts.Data;
 using DigitalStudentCard.Core.ViewModels.QRCode;
 using DigitalStudentCard.Core.Views.QRCode;
 using System;
@@ -12,18 +12,26 @@ namespace DigitalStudentCard.Core.ViewModels.StudentMoment
 {
     public class StudentMomentsViewModel : BaseViewModel
     {
-        public IDataStore<Moment> DataStore => DependencyService.Get<IDataStore<Moment>>();
-        public ObservableCollection<Moment> Moments { get; }
-        public Command LoadMomentsCommand { get; }
-        public Command ShowQRCodeCommand { get; }
-        public StudentMomentsViewModel()
+        private IMomentDataService _momentDataService;
+        private ObservableCollection<Moment> _moments;
+       
+        public StudentMomentsViewModel(IMomentDataService momentDataService)
         {
+            _momentDataService = momentDataService;
             Title = "Browse";
             Moments = new ObservableCollection<Moment>();
             LoadMomentsCommand = new Command(async () => await ExecuteLoadMomentsCommand());
 
-            ShowQRCodeCommand = new Command(OnShowQRCode);
+            MomentTapped = new Command<Moment>(OnShowQRCode);
         }
+        public ObservableCollection<Moment> Moments
+        {
+            get => _moments;
+            set => SetProperty(ref _moments, value);
+        }
+        public Command LoadMomentsCommand { get; }
+        public Command ShowQRCodeCommand { get; }
+        public Command<Moment> MomentTapped { get; }
 
         async Task ExecuteLoadMomentsCommand()
         {
@@ -31,12 +39,7 @@ namespace DigitalStudentCard.Core.ViewModels.StudentMoment
 
             try
             {
-                Moments.Clear();
-                var moments = await DataStore.GetAllAsync(true);
-                foreach (var moment in moments)
-                {
-                    Moments.Add(moment);
-                }
+                Moments = await _momentDataService.GetStudentMomentsAsync(1);
             }
             catch (Exception ex)
             {

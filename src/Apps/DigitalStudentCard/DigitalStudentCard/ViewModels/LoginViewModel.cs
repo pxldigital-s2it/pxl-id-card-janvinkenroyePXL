@@ -67,7 +67,7 @@ namespace DigitalStudentCard.Core.ViewModels
                     if (authenticationResponse.IsAuthenticated)
                     {
                         // we store the Id to know if the user is already logged in to the application
-                        Preferences.Set("UserId", authenticationResponse.User.Id);
+                        Preferences.Set("UserNumber", authenticationResponse.User.UserNumber);
                         Preferences.Set("UserName", authenticationResponse.User.FirstName);
                         Preferences.Set("ApiToken", authenticationResponse.Token);
                         Preferences.Set("Role", authenticationResponse.User.Role.ToString());

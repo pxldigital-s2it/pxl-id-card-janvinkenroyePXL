@@ -47,6 +47,8 @@ internal class MomentConfiguration : IEntityTypeConfiguration<Moment>
                 Id = 1,
                 Name = "PE Web Expert",
                 MomentType = Domain.Enums.MomentType.PE,
+                Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
+                Location = "Online",
                 LectorId = 3
             },
             new Moment()
@@ -54,6 +56,8 @@ internal class MomentConfiguration : IEntityTypeConfiguration<Moment>
                 Id = 2,
                 Name = "Examen IT Essentials",
                 MomentType = Domain.Enums.MomentType.Exam,
+                Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
+                Location = "Lokaal 5",
                 LectorId = 1
             },
             new Moment()
@@ -61,6 +65,8 @@ internal class MomentConfiguration : IEntityTypeConfiguration<Moment>
                 Id = 3,
                 Name = "Examen Java Essentials",
                 MomentType = Domain.Enums.MomentType.Exam,
+                Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
+                Location = "Lokaal 6",
                 LectorId = 1
             },
             new Moment()
@@ -68,6 +74,8 @@ internal class MomentConfiguration : IEntityTypeConfiguration<Moment>
                 Id = 4,
                 Name = "Examen Java Advanced 1",
                 MomentType = Domain.Enums.MomentType.Exam,
+                Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
+                Location = "Lokaal 6",
                 LectorId = 1
             },
             new Moment()
@@ -75,6 +83,8 @@ internal class MomentConfiguration : IEntityTypeConfiguration<Moment>
                 Id = 5,
                 Name = "Examen Java Advanced 2",
                 MomentType = Domain.Enums.MomentType.Exam,
+                Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
+                Location = "Lokaal 1",
                 LectorId = 1
             },
             new Moment()
@@ -82,6 +92,8 @@ internal class MomentConfiguration : IEntityTypeConfiguration<Moment>
                 Id = 6,
                 Name = "PE Security Essentials",
                 MomentType = Domain.Enums.MomentType.PE,
+                Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
+                Location = "Online",
                 LectorId = 4
             },
             new Moment()
@@ -89,6 +101,8 @@ internal class MomentConfiguration : IEntityTypeConfiguration<Moment>
                 Id = 7,
                 Name = "Examen Security Essentials",
                 MomentType = Domain.Enums.MomentType.Exam,
+                Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
+                Location = "Lokaal 5",
                 LectorId = 4
             },
             new Moment()
@@ -96,6 +110,8 @@ internal class MomentConfiguration : IEntityTypeConfiguration<Moment>
                 Id = 8,
                 Name = "Examen Web Expert",
                 MomentType = Domain.Enums.MomentType.Exam,
+                Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
+                Location = "Lokaal 3",
                 LectorId = 4
             },
             new Moment()
@@ -103,6 +119,8 @@ internal class MomentConfiguration : IEntityTypeConfiguration<Moment>
                 Id = 9,
                 Name = "Examen Linux Dekstop",
                 MomentType = Domain.Enums.MomentType.Exam,
+                Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
+                Location = "Online",
                 LectorId = 5
             },
             new Moment()
@@ -110,6 +128,8 @@ internal class MomentConfiguration : IEntityTypeConfiguration<Moment>
                 Id = 10,
                 Name = "PE Mobile Development",
                 MomentType = Domain.Enums.MomentType.PE,
+                Date = DateTime.Now.AddMinutes(-new Random().Next(20000)),
+                Location = "Online",
                 LectorId = 5
             });
     }

@@ -22,30 +22,19 @@ public class LectorController : ControllerBase
         _mapper = mapper;
     }
 
-    [HttpGet("{id}/moments")]
-    public async Task<ActionResult<IEnumerable<Moment>>> GetMomentsForALector(int id)
+    [HttpGet("{userNumber}/moments")]
+    public async Task<ActionResult<IEnumerable<Moment>>> GetMomentsForALector(int userNumber)
     {
-        if (id <= 0)
+        if (userNumber <= 0)
         {
             return BadRequest();
         }
-        if (!await _lectorRepository.ExistsAsync(id))
+        if (!await _lectorRepository.ExistsUserNumberAsync(userNumber))
         {
             return NotFound();
         }
-        var moments = await _momentRepository.GetMomentsForALectorAsync(id);
+        var moments = await _momentRepository.GetMomentsForALectorAsync(userNumber);
 
         return Ok(moments);
     }
-
-
-
-    /*
-    [HttpPost]
-    public ActionResult<void> PostPresence(int userId)
-    {
-        var moments = await _lectorRepository.GetMomentsForALectorAsync(userId);
-        return Ok(_mapper.Map<IEnumerable<MomentDto>>(moments));
-    }
-    */
 }

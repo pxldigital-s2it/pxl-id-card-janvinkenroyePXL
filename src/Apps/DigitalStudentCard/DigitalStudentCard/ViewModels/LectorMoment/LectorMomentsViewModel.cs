@@ -1,5 +1,5 @@
-﻿using DigitalStudentCard.Core.DataStores.Contracts;
-using DigitalStudentCard.Core.Models;
+﻿using DigitalStudentCard.Core.Models;
+using DigitalStudentCard.Core.Services.Contracts.Data;
 using DigitalStudentCard.Core.Views.LectorMoment;
 using System;
 using System.Collections.ObjectModel;
@@ -11,23 +11,27 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
 {
     public class LectorMomentsViewModel : BaseViewModel
     {
-        public IDataStore<Moment> DataStore => DependencyService.Get<IDataStore<Moment>>();
+        private IMomentDataService _momentDataService;
         private Moment _selectedMoment;
-        public ObservableCollection<Moment> Moments { get; }
-        public Command LoadMomentsCommand { get; }
-        public Command ScanQRCodeCommand { get; }
-        public Command<Moment> MomentTapped { get; }
-
-        public LectorMomentsViewModel()
+        private ObservableCollection<Moment> _moments;
+       
+        public LectorMomentsViewModel(IMomentDataService momentDataService)
         {
+            _momentDataService = momentDataService;
             Title = "Browse";
             Moments = new ObservableCollection<Moment>();
             LoadMomentsCommand = new Command(async () => await ExecuteLoadMomentsCommand());
 
             MomentTapped = new Command<Moment>(OnMomentSelected);
-
-            ScanQRCodeCommand = new Command(OnScanQRCode);
         }
+        public ObservableCollection<Moment> Moments
+        {
+            get => _moments;
+            set => SetProperty(ref _moments, value);
+        }
+        public Command LoadMomentsCommand { get; }
+        public Command ScanQRCodeCommand { get; }
+        public Command<Moment> MomentTapped { get; }
 
         async Task ExecuteLoadMomentsCommand()
         {
@@ -35,12 +39,7 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
 
             try
             {
-                Moments.Clear();
-                var moments = await DataStore.GetAllAsync(true);
-                foreach (var moment in moments)
-                {
-                    Moments.Add(moment);
-                }
+                Moments = await _momentDataService.GetLectorMomentsAsync(17);
             }
             catch (Exception ex)
             {
@@ -74,10 +73,6 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
                 return;
 
             await Shell.Current.GoToAsync($"{nameof(LectorMomentDetailPage)}?{nameof(LectorMomentDetailViewModel.MomentId)}={moment.Id}");
-        }
-        private void OnScanQRCode(object obj)
-        {
-            // await Shell.Current.GoToAsync(nameof(ScanQRCodePage));
         }
     }
 }

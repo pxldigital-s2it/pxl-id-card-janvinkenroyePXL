@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Presences.Infrastructure;
 
@@ -11,9 +12,10 @@ using Presences.Infrastructure;
 namespace Presences.Infrastructure.Migrations
 {
     [DbContext(typeof(PresencesContext))]
-    partial class PresencesContextModelSnapshot : ModelSnapshot
+    [Migration("20220904095214_DateAndLocationSeeding")]
+    partial class DateAndLocationSeeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -20,6 +20,8 @@ namespace DigitalStudentCard.Core.Repositories
                 HttpClient httpClient = CreateHttpClient(uri);
                 string jsonResult = string.Empty;
 
+                var responseMessage = await httpClient.GetAsync(uri);
+                /*
                 var responseMessage = await Policy
                     .Handle<WebException>(ex =>
                     {
@@ -32,6 +34,7 @@ namespace DigitalStudentCard.Core.Repositories
                         retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
                     )
                     .ExecuteAsync(async () => await httpClient.GetAsync(uri));
+                */
 
                 if (responseMessage.IsSuccessStatusCode)
                 {

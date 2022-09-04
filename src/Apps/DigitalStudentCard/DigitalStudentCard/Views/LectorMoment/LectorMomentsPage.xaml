@@ -23,7 +23,7 @@
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
     -->
     <RefreshView x:DataType="local:LectorMomentsViewModel" Command="{Binding LoadMomentsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-        <CollectionView x:Name="MomentsListView"
+        <CollectionView x:Name="LectorMomentsListView"
                 ItemsSource="{Binding Moments}"
                 SelectionMode="None">
             <CollectionView.ItemTemplate>

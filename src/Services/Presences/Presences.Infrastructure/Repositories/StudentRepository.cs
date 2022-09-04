@@ -37,4 +37,9 @@ internal class StudentRepository : GenericRepository<Student>, IStudentRepositor
             _presencesContext.Presences.Add(newPresence);
         }
     }
+
+    public async Task<bool> ExistsUserNumberAsync(int userNumber)
+    {
+        return await _presencesContext.Students.AnyAsync(a => a.UserNumber == userNumber);
+    }
 }
