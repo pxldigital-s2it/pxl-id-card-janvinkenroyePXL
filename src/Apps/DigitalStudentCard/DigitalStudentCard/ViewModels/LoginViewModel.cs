@@ -1,6 +1,8 @@
 ﻿using DigitalStudentCard.Core.Services.Contracts.Data;
 using DigitalStudentCard.Core.Services.Contracts.General;
 using DigitalStudentCard.Core.Views;
+using DigitalStudentCard.Core.Views.LectorMoment;
+using DigitalStudentCard.Core.Views.StudentMoment;
 using System;
 using System.Diagnostics;
 using System.Windows.Input;
@@ -67,9 +69,15 @@ namespace DigitalStudentCard.Core.ViewModels
                         // we store the Id to know if the user is already logged in to the application
                         Preferences.Set("UserId", authenticationResponse.User.Id);
                         Preferences.Set("UserName", authenticationResponse.User.FirstName);
+                        Preferences.Set("ApiToken", authenticationResponse.Token);
+                        Preferences.Set("Role", authenticationResponse.User.Role.ToString());
 
                         IsBusy = false;
-                        await Shell.Current.GoToAsync($"{nameof(AboutPage)}");
+                        if(authenticationResponse.User.Role == Enums.Role.Lector)
+                        {
+                            await Shell.Current.GoToAsync($"{nameof(LectorMomentsPage)}");
+                        }
+                        await Shell.Current.GoToAsync($"{nameof(StudentMomentsPage)}");
                     } else
                     {
                         await _alertService.ShowAsync("This username/password combination isn't known");

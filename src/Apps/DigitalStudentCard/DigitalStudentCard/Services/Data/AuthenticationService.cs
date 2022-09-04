@@ -18,7 +18,7 @@ namespace DigitalStudentCard.Core.Services.Data
         }
         public async Task<AuthenticationResponse> Authenticate(string userName, string password)
         {
-            UriBuilder builder = new UriBuilder(ApiConstants.BaseUrl)
+            UriBuilder builder = new UriBuilder(ApiConstants.ApiUrl)
             {
                 Path = ApiConstants.AuthenticateEndpointPath
             };
