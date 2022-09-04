@@ -6,6 +6,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace DigitalStudentCard.Core.ViewModels.StudentMoment
@@ -22,7 +23,7 @@ namespace DigitalStudentCard.Core.ViewModels.StudentMoment
             Moments = new ObservableCollection<Moment>();
             LoadMomentsCommand = new Command(async () => await ExecuteLoadMomentsCommand());
 
-            MomentTapped = new Command<Moment>(OnShowQRCode);
+            ShowQRCodeCommand = new Command<Moment>(OnShowQRCode);
         }
         public ObservableCollection<Moment> Moments
         {
@@ -39,7 +40,8 @@ namespace DigitalStudentCard.Core.ViewModels.StudentMoment
 
             try
             {
-                Moments = await _momentDataService.GetStudentMomentsAsync(1);
+                var userNumber = Preferences.Get("UserNumber", 0);
+                Moments = await _momentDataService.GetStudentMomentsAsync(userNumber);
             }
             catch (Exception ex)
             {
