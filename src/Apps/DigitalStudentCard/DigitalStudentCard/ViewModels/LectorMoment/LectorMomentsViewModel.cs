@@ -39,7 +39,7 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
 
             try
             {
-                Moments = await _momentDataService.GetLectorMomentsAsync(17);
+                Moments = await _momentDataService.GetLectorMomentsAsync(19);
             }
             catch (Exception ex)
             {

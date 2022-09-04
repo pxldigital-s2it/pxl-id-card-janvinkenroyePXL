@@ -8,5 +8,6 @@ namespace DigitalStudentCard.Core.Services.Contracts.Data
     {
         Task<ObservableCollection<Moment>> GetLectorMomentsAsync(int lectorId);
         Task<ObservableCollection<Moment>> GetStudentMomentsAsync(int studentId);
+        Task<Moment> GetMomentAsync(int studentId);
     }
 }

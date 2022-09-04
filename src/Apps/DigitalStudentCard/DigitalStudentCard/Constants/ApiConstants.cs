@@ -17,6 +17,7 @@
         public static string StudentsEndpointPath = $"{ApiPrefix}/students";
         public static string LectorsEndpointPath = $"{ApiPrefix}/lectors";
         public static string PresencesEndpointPath = $"{ApiPrefix}/presences";
+        public static string MomentsEndpointPath = $"{ApiPrefix}/moments";
         public static string AuthenticateEndpointPath = $"{ApiPrefix}/authentication/authenticate";
         // public static string RegisterEndpointPath = $"{ApiPrefix}/authentication/register";
     }

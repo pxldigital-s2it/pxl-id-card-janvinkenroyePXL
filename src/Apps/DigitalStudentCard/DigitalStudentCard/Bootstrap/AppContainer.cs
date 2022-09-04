@@ -42,6 +42,7 @@ namespace DigitalStudentCard.Core.Bootstrap
             builder.RegisterType<LoginViewModel>();
             builder.RegisterType<StudentMomentsViewModel>();
             builder.RegisterType<QRCodeViewModel>();
+            builder.RegisterType<AppShellViewModel>();
 
             //MockDataStores
             builder.RegisterType<MockPresenceDataStore>();
@@ -54,6 +55,7 @@ namespace DigitalStudentCard.Core.Bootstrap
             //services - data
             builder.RegisterType<MomentDataService>().As<IMomentDataService>();
             builder.RegisterType<PresenceDataService>().As<IPresenceDataService>();
+            builder.RegisterType<StudentDataService>().As<IStudentDataService>();
 
             //services - general
             builder.RegisterType<AlertService>().As<IAlertService>();

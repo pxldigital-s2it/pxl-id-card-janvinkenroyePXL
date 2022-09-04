@@ -1,9 +1,9 @@
-﻿using DigitalStudentCard.Core.Enums;
+﻿using DigitalStudentCard.Core.Bootstrap;
+using DigitalStudentCard.Core.ViewModels;
 using DigitalStudentCard.Core.Views.LectorMoment;
 using DigitalStudentCard.Core.Views.QRCode;
 using DigitalStudentCard.Core.Views.StudentMoment;
 using System;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace DigitalStudentCard.Core
@@ -17,21 +17,14 @@ namespace DigitalStudentCard.Core
             Routing.RegisterRoute(nameof(QRCodePage), typeof(QRCodePage));
             Routing.RegisterRoute(nameof(LectorMomentsPage), typeof(LectorMomentsPage));
             Routing.RegisterRoute(nameof(StudentMomentsPage), typeof(StudentMomentsPage));
+
+            BindingContext =
+                (AppShellViewModel)AppContainer.Instance.Resolve(typeof(AppShellViewModel));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//LoginPage");
-        }
-
-        public bool IsStudent()
-        {
-            return Preferences.Get("Role", "Unknown") == Role.Student.ToString();
-        }
-
-        public bool IsLector()
-        {
-            return Preferences.Get("Role", "Unknown") == Role.Lector.ToString();
         }
     }
 }

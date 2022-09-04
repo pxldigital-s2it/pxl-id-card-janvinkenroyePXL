@@ -42,5 +42,17 @@ namespace DigitalStudentCard.Core.Services.Data
             
             return new ObservableCollection<Moment>(moments);
         }
+
+        public async Task<Moment> GetMomentAsync(int momentId)
+        {
+            UriBuilder builder = new UriBuilder(ApiConstants.ApiUrl)
+            {
+                Path = $"{ApiConstants.MomentsEndpointPath}/{momentId}"
+            };
+
+            var moment = await _genericRepository.GetAsync<Moment>(builder.ToString());
+
+            return moment;
+        }
     }
 }
