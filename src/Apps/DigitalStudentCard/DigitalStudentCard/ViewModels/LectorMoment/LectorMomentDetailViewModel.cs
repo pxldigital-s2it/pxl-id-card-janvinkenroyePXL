@@ -2,6 +2,7 @@
 using DigitalStudentCard.Core.Models;
 using DigitalStudentCard.Core.Services.Contracts.Data;
 using DigitalStudentCard.Core.Services.Contracts.General;
+using DigitalStudentCard.Core.ViewModels.QRCode;
 using DigitalStudentCard.Core.Views.QRCode;
 using System;
 using System.Collections.Generic;
@@ -121,12 +122,16 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
 
         private async void OnScanQRCode(object obj)
         {
-            await Shell.Current.GoToAsync($"{nameof(QRScanningPage)}");
+            await Shell.Current.GoToAsync($"{nameof(QRScanningPage)}?" +
+                $"{nameof(QRScanningViewModel.IsBlanco)}=false&" +
+                $"{nameof(QRScanningViewModel.MomentId)}={MomentId}");
         }
 
         private async void OnScanQRCodeBlanco(object obj)
         {
-            await Shell.Current.GoToAsync($"{nameof(QRScanningPage)}");
+            await Shell.Current.GoToAsync($"{nameof(QRScanningPage)}?" +
+                $"{nameof(QRScanningViewModel.IsBlanco)}=true&" +
+                $"{nameof(QRScanningViewModel.MomentId)}={MomentId}");
         }
     }
 }

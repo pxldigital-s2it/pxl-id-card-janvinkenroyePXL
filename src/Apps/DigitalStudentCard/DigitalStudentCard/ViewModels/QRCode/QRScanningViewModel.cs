@@ -8,18 +8,43 @@ using ZXing;
 
 namespace DigitalStudentCard.Core.ViewModels.QRCode
 {
+    [QueryProperty(nameof(IsBlanco), nameof(IsBlanco))]
+    [QueryProperty(nameof(MomentId), nameof(MomentId))]
     public class QRScanningViewModel : BaseViewModel
     {
         private readonly IQRCodeService _qRCodeService = null;
         private readonly IPresenceDataService _presenceDataService = null;
         private bool _isBlanco = false;
+        private int _momentId;
         public QRScanningViewModel(IQRCodeService qRCodeService, IPresenceDataService presenceDataService)
         {
             _qRCodeService = qRCodeService;
             _presenceDataService = presenceDataService;
         }
 
-        public bool IsBlanco { get; set; }
+        public bool IsBlanco
+        {
+            get
+            {
+                return _isBlanco;
+            }
+            set
+            {
+                _isBlanco = value;
+            }
+        }
+
+        public int MomentId
+        {
+            get
+            {
+                return _momentId;
+            }
+            set
+            {
+                _momentId = value;
+            }
+        }
 
         public async Task HandleScanResult(Result scanResult)
         {

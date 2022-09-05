@@ -60,7 +60,8 @@ namespace DigitalStudentCard.Core.ViewModels.StudentMoment
 
         private async void OnShowQRCode(object obj)
         {
-            await Shell.Current.GoToAsync($"{nameof(QRCodePage)}?{nameof(QRCodeViewModel.UserNumber)}=1");
+            var userNumber = Preferences.Get("UserNumber", 0);
+            await Shell.Current.GoToAsync($"{nameof(QRCodePage)}?{nameof(QRCodeViewModel.UserNumber)}={userNumber}");
         }
     }
 }
