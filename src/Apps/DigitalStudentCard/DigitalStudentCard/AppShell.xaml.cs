@@ -1,5 +1,6 @@
 ﻿using DigitalStudentCard.Core.Bootstrap;
 using DigitalStudentCard.Core.ViewModels;
+using DigitalStudentCard.Core.Views;
 using DigitalStudentCard.Core.Views.LectorMoment;
 using DigitalStudentCard.Core.Views.QRCode;
 using DigitalStudentCard.Core.Views.StudentMoment;
@@ -18,6 +19,8 @@ namespace DigitalStudentCard.Core
             Routing.RegisterRoute(nameof(LectorMomentsPage), typeof(LectorMomentsPage));
             Routing.RegisterRoute(nameof(StudentMomentsPage), typeof(StudentMomentsPage));
             Routing.RegisterRoute(nameof(QRScanningPage), typeof(QRScanningPage));
+            Routing.RegisterRoute(nameof(AboutPage), typeof(AboutPage));
+            Routing.RegisterRoute(nameof(AppShell), typeof(AppShell));
 
             BindingContext =
                 (AppShellViewModel)AppContainer.Instance.Resolve(typeof(AppShellViewModel));

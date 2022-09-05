@@ -73,11 +73,14 @@ namespace DigitalStudentCard.Core.ViewModels
                         Preferences.Set("Role", authenticationResponse.User.Role.ToString());
 
                         IsBusy = false;
+                        /*
                         if(authenticationResponse.User.Role == Enums.Role.Lector)
                         {
                             await Shell.Current.GoToAsync($"{nameof(LectorMomentsPage)}");
                         }
-                        await Shell.Current.GoToAsync($"{nameof(StudentMomentsPage)}");
+                        */
+                        Application.Current.MainPage = new AppShell();
+                        // await Shell.Current.GoToAsync($"{nameof(AppShell)}");
                     } else
                     {
                         await _alertService.ShowAsync("This username/password combination isn't known");
