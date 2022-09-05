@@ -1,4 +1,5 @@
-﻿using DigitalStudentCard.Core.Models;
+﻿using DigitalStudentCard.Core.Enums;
+using DigitalStudentCard.Core.Models;
 using DigitalStudentCard.Core.Services.Contracts.Data;
 using DigitalStudentCard.Core.Services.Contracts.General;
 using System;
@@ -54,11 +55,12 @@ namespace DigitalStudentCard.Core.ViewModels.QRCode
                 {
                     var newPresence = new Presence
                     {
-                        MomentId = 1, // momentId,
+                        MomentId = MomentId,
                         StudentId = int.Parse(scanResult.Text),
                         IsBlanco = IsBlanco
                     };
                     await _presenceDataService.AddPresence(newPresence);
+                    MessagingCenter.Send<QRScanningViewModel, Presence>(this, "PresenceAdded", newPresence);
                 }
             }
             catch (Exception ex)

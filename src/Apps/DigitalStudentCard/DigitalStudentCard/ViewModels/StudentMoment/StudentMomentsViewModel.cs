@@ -24,6 +24,11 @@ namespace DigitalStudentCard.Core.ViewModels.StudentMoment
             LoadMomentsCommand = new Command(async () => await ExecuteLoadMomentsCommand());
 
             ShowQRCodeCommand = new Command<Moment>(OnShowQRCode);
+
+            MessagingCenter.Subscribe<QRScanningViewModel, Presence>(this, "PresenceAdded", (sender, arg) =>
+            {
+                ExecuteLoadMomentsCommand();
+            });
         }
         public ObservableCollection<Moment> Moments
         {

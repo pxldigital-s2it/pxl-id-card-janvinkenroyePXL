@@ -44,6 +44,7 @@ namespace DigitalStudentCard.Core.Bootstrap
             builder.RegisterType<QRCodeViewModel>();
             builder.RegisterType<QRScanningViewModel>();
             builder.RegisterType<AppShellViewModel>();
+            builder.RegisterType<AboutViewModel>();
 
             //MockDataStores
             builder.RegisterType<MockPresenceDataStore>();
