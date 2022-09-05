@@ -14,7 +14,8 @@
     <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.4" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />  
-    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />  
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,11 +25,20 @@
     <Compile Update="Views\LectorMoment\LectorMomentsPage.xaml.cs">
       <DependentUpon>LectorMomentsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\QRCode\QRScanningPage.xaml.cs">
+      <DependentUpon>QRScanningPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\QRCode\QRCodePage.xaml.cs">
       <DependentUpon>QRCodePage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\StudentMoment\StudentMomentsPage.xaml.cs">
       <DependentUpon>StudentMomentsPage.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\QRCode\QRScanningPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

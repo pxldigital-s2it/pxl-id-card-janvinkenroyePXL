@@ -1,8 +1,8 @@
-﻿using DigitalStudentCard.Core.DataStores.Contracts;
-using DigitalStudentCard.Core.Enums;
+﻿using DigitalStudentCard.Core.Enums;
 using DigitalStudentCard.Core.Models;
 using DigitalStudentCard.Core.Services.Contracts.Data;
-using DigitalStudentCard.Core.Services.Data;
+using DigitalStudentCard.Core.Services.Contracts.General;
+using DigitalStudentCard.Core.Views.QRCode;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,6 +16,9 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
     {
         private IMomentDataService _momentDataService;
         private IStudentDataService _studentDataService;
+        private IPresenceDataService _presenceDataService;
+        private IQRCodeService _qRCodeService;
+
         private int momentId;
         private string name;
         private MomentType momentType;
@@ -23,12 +26,23 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
         private string location;
         private ICollection<Presence> presences;
         private ObservableCollection<Student> _absentStudents;
+        
         public LectorMomentDetailViewModel(IMomentDataService momentDataService,
-            IStudentDataService studentDataService)
+            IStudentDataService studentDataService,
+            IPresenceDataService presenceDataService,
+            IQRCodeService qRCodeService)
         {
             _momentDataService = momentDataService;
             _studentDataService = studentDataService;
+            _presenceDataService = presenceDataService;
+            _qRCodeService = qRCodeService;
+
+            ScanQRCodeCommand = new Command(OnScanQRCode);
+            ScanQRCodeBlancoCommand = new Command(OnScanQRCodeBlanco);
         }
+
+        public Command ScanQRCodeCommand { get; }
+        public Command ScanQRCodeBlancoCommand { get; }
         public int Id { get; set; }
 
         public ObservableCollection<Student> AbsentStudents
@@ -103,6 +117,16 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
         internal void OnAppearing()
         {
             // IsBusy = true;
+        }
+
+        private async void OnScanQRCode(object obj)
+        {
+            await Shell.Current.GoToAsync($"{nameof(QRScanningPage)}");
+        }
+
+        private async void OnScanQRCodeBlanco(object obj)
+        {
+            await Shell.Current.GoToAsync($"{nameof(QRScanningPage)}");
         }
     }
 }

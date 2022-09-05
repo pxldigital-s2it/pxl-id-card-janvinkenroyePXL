@@ -5,6 +5,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace DigitalStudentCard.Core.ViewModels.LectorMoment
@@ -30,7 +31,7 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
             set => SetProperty(ref _moments, value);
         }
         public Command LoadMomentsCommand { get; }
-        public Command ScanQRCodeCommand { get; }
+        
         public Command<Moment> MomentTapped { get; }
 
         async Task ExecuteLoadMomentsCommand()
@@ -39,7 +40,8 @@ namespace DigitalStudentCard.Core.ViewModels.LectorMoment
 
             try
             {
-                Moments = await _momentDataService.GetLectorMomentsAsync(19);
+                var userNumber = Preferences.Get("UserNumber", 0);
+                Moments = await _momentDataService.GetLectorMomentsAsync(userNumber);
             }
             catch (Exception ex)
             {

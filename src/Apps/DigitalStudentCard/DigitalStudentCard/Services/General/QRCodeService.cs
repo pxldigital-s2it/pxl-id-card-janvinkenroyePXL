@@ -31,6 +31,7 @@ namespace DigitalStudentCard.Core.Services.General
             {
                 TopText = "Scan the QR Code",
                 BottomText = "Please Wait",
+                CancelButtonText = "Cancel"
             };
 
             var scanResult = await scanner.Scan(scanningOptions);  

@@ -17,6 +17,7 @@ namespace DigitalStudentCard.Core
             Routing.RegisterRoute(nameof(QRCodePage), typeof(QRCodePage));
             Routing.RegisterRoute(nameof(LectorMomentsPage), typeof(LectorMomentsPage));
             Routing.RegisterRoute(nameof(StudentMomentsPage), typeof(StudentMomentsPage));
+            Routing.RegisterRoute(nameof(QRScanningPage), typeof(QRScanningPage));
 
             BindingContext =
                 (AppShellViewModel)AppContainer.Instance.Resolve(typeof(AppShellViewModel));
