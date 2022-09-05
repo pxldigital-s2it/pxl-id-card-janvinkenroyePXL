@@ -20,6 +20,8 @@ namespace DigitalStudentCard.Core.Repositories
                 HttpClient httpClient = CreateHttpClient(uri);
                 string jsonResult = string.Empty;
 
+                var responseMessage = await httpClient.GetAsync(uri);
+                /*
                 var responseMessage = await Policy
                     .Handle<WebException>(ex =>
                     {
@@ -32,6 +34,7 @@ namespace DigitalStudentCard.Core.Repositories
                         retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
                     )
                     .ExecuteAsync(async () => await httpClient.GetAsync(uri));
+                */
 
                 if (responseMessage.IsSuccessStatusCode)
                 {
@@ -60,7 +63,7 @@ namespace DigitalStudentCard.Core.Repositories
         {
             try
             {
-                HttpClient httpClient = CreateHttpClient(uri);
+                HttpClient httpClient = CreateHttpClient(authToken);
 
                 var content = new StringContent(JsonConvert.SerializeObject(data));
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
@@ -107,13 +110,13 @@ namespace DigitalStudentCard.Core.Repositories
         {
             try
             {
-                HttpClient httpClient = CreateHttpClient(uri);
+                HttpClient httpClient = CreateHttpClient(authToken);
 
-                var content = new StringContent(JsonConvert.SerializeObject(data));
+                var content = new StringContent(JsonConvert.SerializeObject(data)); 
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
                 string jsonResult = string.Empty;
-                var responseMessage = await httpClient.PostAsync(uri, content);
+                var responseMessage = httpClient.PostAsync(uri, content).Result; 
                 //var responseMessage = await Policy
                 //    .Handle<WebException>(ex =>
                 //    {
@@ -205,6 +208,13 @@ namespace DigitalStudentCard.Core.Repositories
 
         private HttpClient CreateHttpClient(string authToken)
         {
+           
+            var handler = new HttpClientHandler
+            {
+                // Change the func to check if the correct certificate is provided
+                ServerCertificateCustomValidationCallback = (message, certificate, chain, errors) => true
+            };
+            var client = new HttpClient(handler);
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

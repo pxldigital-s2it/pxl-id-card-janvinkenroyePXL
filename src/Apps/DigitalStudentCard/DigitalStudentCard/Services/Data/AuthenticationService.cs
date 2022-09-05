@@ -4,6 +4,7 @@ using DigitalStudentCard.Core.Repositories.Contracts;
 using DigitalStudentCard.Core.Services.Contracts.Data;
 using System;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace DigitalStudentCard.Core.Services.Data
 {
@@ -17,7 +18,7 @@ namespace DigitalStudentCard.Core.Services.Data
         }
         public async Task<AuthenticationResponse> Authenticate(string userName, string password)
         {
-            UriBuilder builder = new UriBuilder(ApiConstants.BaseUrl)
+            UriBuilder builder = new UriBuilder(ApiConstants.ApiUrl)
             {
                 Path = ApiConstants.AuthenticateEndpointPath
             };
@@ -30,13 +31,12 @@ namespace DigitalStudentCard.Core.Services.Data
 
             return await _genericRepository.PostAsync<AuthenticationRequest, AuthenticationResponse>(builder.ToString(), authenticationRequest);
         }
-
-        /*
         public bool IsUserAuthenticated()
         {
-            return !string.IsNullOrEmpty(_settingsService.UserIdSetting);
+            return Preferences.ContainsKey("UserId");
         }
 
+        /*
         public async Task<AuthenticationResponse> Register(string firstName, string lastName, string email, string userName, string password)
         {
         UriBuilder builder = new UriBuilder(ApiConstants.BaseUrl)

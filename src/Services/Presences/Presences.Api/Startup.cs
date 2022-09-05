@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Presences.Logic;
 using Presences.Logic.IRepositories;
 using Presences.Infrastructure.Repositories;
+using System.Text.Json.Serialization;
 
 namespace Presences.Api;
 
@@ -58,6 +59,10 @@ public class Startup
         services.AddScoped<IAdminRepository, AdminRepository>();
         services.AddScoped<IMomentRepository, MomentRepository>();
         services.AddScoped<IPresenceRepository, PresenceRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
+
+        services.AddControllers().AddJsonOptions(options =>
+            options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
     }
 
     public void Configure(WebApplication app, IWebHostEnvironment env)
@@ -69,7 +74,7 @@ public class Startup
             app.UseSwaggerUI();
         }
 
-        app.UseHttpsRedirection();
+        // app.UseHttpsRedirection();
 
         app.UseAuthentication();
 

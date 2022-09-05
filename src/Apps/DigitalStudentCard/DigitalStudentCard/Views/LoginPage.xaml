@@ -1,14 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
              x:Class="DigitalStudentCard.Core.Views.LoginPage"
-             Shell.NavBarIsVisible="False">
+             BackgroundColor="{StaticResource BethanyPurple}">
     <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
-        </StackLayout>
+        <Grid Padding="40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="3*" />
+            </Grid.RowDefinitions>
+            <Label Text="Digital Student Card" TextColor="#487eb0" HorizontalTextAlignment="Center"
+                   VerticalOptions="Start"
+                   FontAttributes="Bold" FontSize="22" Grid.Row="0" Margin="40" />
+            <StackLayout Grid.Row="2">
+                <Label Text="Login" TextColor="#487eb0" FontAttributes="Bold" />
+                <Entry Placeholder="Username" WidthRequest="200" Text="{Binding UserName, Mode=TwoWay}" />
+                <Entry IsPassword="True" Placeholder="Password" WidthRequest="200"
+                       Text="{Binding Password, Mode=TwoWay}" />
+                <Button Text="Login" Command="{Binding LoginCommand}" />
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

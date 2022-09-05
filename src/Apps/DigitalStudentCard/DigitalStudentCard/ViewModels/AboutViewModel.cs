@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -10,7 +9,7 @@ namespace DigitalStudentCard.Core.ViewModels
         public AboutViewModel()
         {
             Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
+            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://github.com/pxldigital-s2it/pxl-id-card-janvinkenroyePXL"));
         }
 
         public ICommand OpenWebCommand { get; }

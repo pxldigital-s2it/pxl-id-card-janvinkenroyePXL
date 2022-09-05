@@ -1,9 +1,6 @@
-﻿using DigitalStudentCard.Core.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DigitalStudentCard.Core.Bootstrap;
+using DigitalStudentCard.Core.ViewModels;
+using DigitalStudentCard.Core.ViewModels.StudentMoment;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,10 +9,21 @@ namespace DigitalStudentCard.Core.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
+        private readonly LoginViewModel _viewModel;
+
         public LoginPage()
         {
             InitializeComponent();
-            this.BindingContext = new LoginViewModel();
+
+            BindingContext = _viewModel =
+                (LoginViewModel)AppContainer.Instance.Resolve(typeof(LoginViewModel));
+        }
+
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            _viewModel.OnAppearing();
         }
     }
 }

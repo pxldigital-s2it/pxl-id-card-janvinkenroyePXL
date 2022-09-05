@@ -12,8 +12,8 @@
         <ResourceDictionary>
             <converters:DateTimeToStringConverter
                 x:Key="DateTimeToStringConverter"/>
-            <converters:IsBlancoToStringConverter
-                x:Key="IsBlancoToStringConverter"/>
+            <converters:PresencesToStringConverter
+                x:Key="PresencesToStringConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -43,7 +43,7 @@
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
-                        <Label Text="{Binding Presences[0].IsBlanco}" 
+                        <Label Text="{Binding Presences, Converter={StaticResource PresencesToStringConverter}}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />

@@ -131,72 +131,110 @@ namespace Presences.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
+                            Date = new DateTime(2022, 9, 3, 12, 28, 0, 750, DateTimeKind.Local).AddTicks(9448),
                             LectorId = 3,
+                            Location = "Online",
                             MomentType = 1,
-                            Name = "PE Web Expert"
+                            Name = "PE .NET Expert"
                         },
                         new
                         {
                             Id = 2,
+                            Date = new DateTime(2022, 8, 30, 9, 52, 0, 750, DateTimeKind.Local).AddTicks(9545),
                             LectorId = 1,
+                            Location = "Lokaal 5",
                             MomentType = 0,
                             Name = "Examen IT Essentials"
                         },
                         new
                         {
                             Id = 3,
+                            Date = new DateTime(2022, 8, 28, 23, 54, 0, 750, DateTimeKind.Local).AddTicks(9552),
                             LectorId = 1,
+                            Location = "Lokaal 6",
                             MomentType = 0,
                             Name = "Examen Java Essentials"
                         },
                         new
                         {
                             Id = 4,
+                            Date = new DateTime(2022, 8, 30, 18, 24, 0, 750, DateTimeKind.Local).AddTicks(9556),
                             LectorId = 1,
+                            Location = "Lokaal 6",
                             MomentType = 0,
                             Name = "Examen Java Advanced 1"
                         },
                         new
                         {
                             Id = 5,
+                            Date = new DateTime(2022, 8, 24, 18, 4, 0, 750, DateTimeKind.Local).AddTicks(9574),
                             LectorId = 1,
+                            Location = "Lokaal 1",
                             MomentType = 0,
                             Name = "Examen Java Advanced 2"
                         },
                         new
                         {
                             Id = 6,
+                            Date = new DateTime(2022, 8, 22, 19, 4, 0, 750, DateTimeKind.Local).AddTicks(9578),
                             LectorId = 4,
+                            Location = "Online",
                             MomentType = 1,
                             Name = "PE Security Essentials"
                         },
                         new
                         {
                             Id = 7,
+                            Date = new DateTime(2022, 9, 1, 19, 14, 0, 750, DateTimeKind.Local).AddTicks(9583),
                             LectorId = 4,
+                            Location = "Lokaal 5",
                             MomentType = 0,
                             Name = "Examen Security Essentials"
                         },
                         new
                         {
                             Id = 8,
+                            Date = new DateTime(2022, 9, 4, 0, 45, 0, 750, DateTimeKind.Local).AddTicks(9587),
                             LectorId = 4,
+                            Location = "Lokaal 3",
                             MomentType = 0,
                             Name = "Examen Web Expert"
                         },
                         new
                         {
                             Id = 9,
+                            Date = new DateTime(2022, 9, 1, 4, 13, 0, 750, DateTimeKind.Local).AddTicks(9594),
                             LectorId = 5,
+                            Location = "Online",
                             MomentType = 0,
                             Name = "Examen Linux Dekstop"
                         },
                         new
                         {
                             Id = 10,
+                            Date = new DateTime(2022, 9, 4, 13, 17, 0, 750, DateTimeKind.Local).AddTicks(9599),
                             LectorId = 5,
+                            Location = "Online",
                             MomentType = 1,
                             Name = "PE Mobile Development"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Date = new DateTime(2022, 8, 30, 13, 26, 0, 750, DateTimeKind.Local).AddTicks(9602),
+                            LectorId = 3,
+                            Location = "Online",
+                            MomentType = 0,
+                            Name = "Examen .NET Expert"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Date = new DateTime(2022, 8, 25, 12, 46, 0, 750, DateTimeKind.Local).AddTicks(9607),
+                            LectorId = 3,
+                            Location = "Lokaal 7",
+                            MomentType = 0,
+                            Name = "Inhaalexamen .NET Expert"
                         });
                 });
 
@@ -225,6 +263,148 @@ namespace Presences.Infrastructure.Migrations
                     b.HasIndex("StudentId");
 
                     b.ToTable("presences", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsBlanco = true,
+                            MomentId = 1,
+                            StudentId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            IsBlanco = false,
+                            MomentId = 1,
+                            StudentId = 3
+                        },
+                        new
+                        {
+                            Id = 3,
+                            IsBlanco = true,
+                            MomentId = 1,
+                            StudentId = 4
+                        },
+                        new
+                        {
+                            Id = 4,
+                            IsBlanco = false,
+                            MomentId = 1,
+                            StudentId = 6
+                        },
+                        new
+                        {
+                            Id = 5,
+                            IsBlanco = false,
+                            MomentId = 1,
+                            StudentId = 8
+                        },
+                        new
+                        {
+                            Id = 6,
+                            IsBlanco = true,
+                            MomentId = 1,
+                            StudentId = 10
+                        },
+                        new
+                        {
+                            Id = 7,
+                            IsBlanco = false,
+                            MomentId = 1,
+                            StudentId = 11
+                        },
+                        new
+                        {
+                            Id = 8,
+                            IsBlanco = false,
+                            MomentId = 1,
+                            StudentId = 14
+                        },
+                        new
+                        {
+                            Id = 9,
+                            IsBlanco = false,
+                            MomentId = 1,
+                            StudentId = 15
+                        },
+                        new
+                        {
+                            Id = 10,
+                            IsBlanco = false,
+                            MomentId = 1,
+                            StudentId = 16
+                        },
+                        new
+                        {
+                            Id = 11,
+                            IsBlanco = true,
+                            MomentId = 2,
+                            StudentId = 15
+                        },
+                        new
+                        {
+                            Id = 12,
+                            IsBlanco = true,
+                            MomentId = 4,
+                            StudentId = 15
+                        },
+                        new
+                        {
+                            Id = 13,
+                            IsBlanco = false,
+                            MomentId = 5,
+                            StudentId = 15
+                        },
+                        new
+                        {
+                            Id = 14,
+                            IsBlanco = false,
+                            MomentId = 6,
+                            StudentId = 15
+                        },
+                        new
+                        {
+                            Id = 15,
+                            IsBlanco = false,
+                            MomentId = 7,
+                            StudentId = 15
+                        },
+                        new
+                        {
+                            Id = 16,
+                            IsBlanco = false,
+                            MomentId = 9,
+                            StudentId = 15
+                        },
+                        new
+                        {
+                            Id = 17,
+                            IsBlanco = false,
+                            MomentId = 10,
+                            StudentId = 15
+                        },
+                        new
+                        {
+                            Id = 18,
+                            IsBlanco = true,
+                            MomentId = 11,
+                            StudentId = 15
+                        },
+                        new
+                        {
+                            Id = 19,
+                            IsBlanco = false,
+                            MomentId = 11,
+                            StudentId = 16
+                        },
+                        new
+                        {
+                            Id = 20,
+                            IsBlanco = false,
+                            MomentId = 11,
+                            StudentId = 1
+                        });
                 });
 
             modelBuilder.Entity("Presences.Domain.Student", b =>
@@ -613,7 +793,7 @@ namespace Presences.Infrastructure.Migrations
             modelBuilder.Entity("Presences.Domain.Presence", b =>
                 {
                     b.HasOne("Presences.Domain.Moment", "Moment")
-                        .WithMany()
+                        .WithMany("Presences")
                         .HasForeignKey("MomentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -643,6 +823,11 @@ namespace Presences.Infrastructure.Migrations
             modelBuilder.Entity("Presences.Domain.Lector", b =>
                 {
                     b.Navigation("OwnedMoments");
+                });
+
+            modelBuilder.Entity("Presences.Domain.Moment", b =>
+                {
+                    b.Navigation("Presences");
                 });
 
             modelBuilder.Entity("Presences.Domain.Student", b =>

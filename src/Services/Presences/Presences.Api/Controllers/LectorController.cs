@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Presences.DataTransfer;
+using Presences.Domain;
 using Presences.Logic.IRepositories;
 
 namespace Presences.Api.Controllers;
@@ -22,34 +22,19 @@ public class LectorController : ControllerBase
         _mapper = mapper;
     }
 
-    [HttpGet("{id}/moments")]
-    public async Task<ActionResult<IEnumerable<MomentDto>>> GetMomentsForALector(int id)
+    [HttpGet("{userNumber}/moments")]
+    public async Task<ActionResult<IEnumerable<Moment>>> GetMomentsForALector(int userNumber)
     {
-        if (id <= 0)
+        if (userNumber <= 0)
         {
             return BadRequest();
         }
-        if (!await _lectorRepository.ExistsAsync(id))
+        if (!await _lectorRepository.ExistsUserNumberAsync(userNumber))
         {
             return NotFound();
         }
-        var moments = await _momentRepository.GetMomentsForALectorAsync(id);
-        var momentDtos = new List<MomentDto>();
-        foreach (var moment in moments)
-        {
-            momentDtos.Add(_mapper.Map<MomentDto>(moment));
-        }
-        return Ok(momentDtos);
+        var moments = await _momentRepository.GetMomentsForALectorAsync(userNumber);
+
+        return Ok(moments);
     }
-
-
-
-    /*
-    [HttpPost]
-    public ActionResult<void> PostPresence(int userId)
-    {
-        var moments = await _lectorRepository.GetMomentsForALectorAsync(userId);
-        return Ok(_mapper.Map<IEnumerable<MomentDto>>(moments));
-    }
-    */
 }

@@ -52,7 +52,7 @@ public class StudentController : ControllerBase
     }
 
     [HttpGet("{id}/presences")]
-    public async Task<ActionResult<IEnumerable<PresenceDto>>> GetPresences(int id)
+    public async Task<ActionResult<IEnumerable<Presence>>> GetPresences(int id)
     {
         if (id <= 0)
         {
@@ -63,12 +63,7 @@ public class StudentController : ControllerBase
             return NotFound();
         }
         var presences = await _presenceRepository.GetPresencesForAStudentAsync(id);
-        var presenceDtos = new List<PresenceDto>();
-        foreach (var presence in presences)
-        {
-            presenceDtos.Add(_mapper.Map<PresenceDto>(presence));
-        }
-        return Ok(presenceDtos);
+        return Ok(presences);
     }
 
     [HttpPost("{id}/presences")]
@@ -87,35 +82,30 @@ public class StudentController : ControllerBase
         {
             Presence newPresence = new Presence()
             {
+                StudentId = id,
                 MomentId = presence.MomentId,
                 IsBlanco = presence.IsBlanco
             };
-            await _studentRepository.AddPresenceForAStudentAsync(id, newPresence);
-
-
-            return Ok(_mapper.Map<PresenceDto>(_presenceRepository.Insert(newPresence)));
+            var insertedPresence = _presenceRepository.Insert(newPresence);
+            await _studentRepository.AddPresenceForAStudentAsync(id, insertedPresence);
+            return Ok(insertedPresence);
         }
         return BadRequest();
     }
 
-    [HttpGet("{id}/moments")]
-    public async Task<ActionResult<IEnumerable<MomentDto>>> GetStudentMoments(int id)
+    [HttpGet("{userNumber}/moments")]
+    public async Task<ActionResult<IEnumerable<Moment>>> GetStudentMoments(int userNumber)
     {
-        if (id <= 0)
+        if (userNumber <= 0)
         {
             return BadRequest();
         }
-        if (!await _studentRepository.ExistsAsync(id))
+        if (!await _studentRepository.ExistsUserNumberAsync(userNumber))
         {
             return NotFound();
         }
-        var moments = await _momentRepository.GetMomentsForAStudentAsync(id);
-        var momentDtos = new List<MomentDto>();
-        foreach (var moment in moments)
-        {
-            momentDtos.Add(_mapper.Map<MomentDto>(moment));
-        }
-        return Ok(momentDtos);
+        var moments = await _momentRepository.GetMomentsForAStudentAsync(userNumber);
+        return Ok(moments);
     }
 }
 

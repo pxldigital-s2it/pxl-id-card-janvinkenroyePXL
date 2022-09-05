@@ -1,10 +1,16 @@
 ﻿using Autofac;
+using DigitalStudentCard.Core.DataStores;
+using DigitalStudentCard.Core.Repositories.Contracts;
+using DigitalStudentCard.Core.Repositories;
+using DigitalStudentCard.Core.Services.Contracts.Data;
+using DigitalStudentCard.Core.Services.Contracts.General;
+using DigitalStudentCard.Core.Services.Data;
+using DigitalStudentCard.Core.Services.General;
 using DigitalStudentCard.Core.ViewModels;
 using DigitalStudentCard.Core.ViewModels.LectorMoment;
 using DigitalStudentCard.Core.ViewModels.StudentMoment;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using DigitalStudentCard.Core.ViewModels.QRCode;
 
 namespace DigitalStudentCard.Core.Bootstrap
 {
@@ -26,7 +32,7 @@ namespace DigitalStudentCard.Core.Bootstrap
             RegisterDependencies();
         }
 
-        private void RegisterDependencies()
+        public void RegisterDependencies()
         {
             var builder = new ContainerBuilder();
 
@@ -35,28 +41,30 @@ namespace DigitalStudentCard.Core.Bootstrap
             builder.RegisterType<LectorMomentsViewModel>();
             builder.RegisterType<LoginViewModel>();
             builder.RegisterType<StudentMomentsViewModel>();
-            builder.RegisterType<StudentMomentItemViewModel>();
+            builder.RegisterType<QRCodeViewModel>();
+            builder.RegisterType<QRScanningViewModel>();
+            builder.RegisterType<AppShellViewModel>();
+            builder.RegisterType<AboutViewModel>();
 
-            /*
-            //services - data
-            builder.RegisterType<CatalogDataService>().As<ICatalogDataService>();
-            builder.RegisterType<ShoppingCartDataService>().As<IShoppingCartDataService>();
-            builder.RegisterType<ContactDataService>().As<IContactDataService>();
-            builder.RegisterType<OrderDataService>().As<IOrderDataService>();
-            */
+            //MockDataStores
+            builder.RegisterType<MockPresenceDataStore>();
+            builder.RegisterType<MockStudentDataStore>();
+            builder.RegisterType<MockMomentDataStore>();
 
-            /*
-            //services - general
-            builder.RegisterType<ConnectionService>().As<IConnectionService>();
-            builder.RegisterType<NavigationService>().As<INavigationService>();
+            //services - auth
             builder.RegisterType<AuthenticationService>().As<IAuthenticationService>();
-            builder.RegisterType<DialogService>().As<IDialogService>();
-            builder.RegisterType<PhoneService>().As<IPhoneService>();
-            builder.RegisterType<SettingsService>().As<ISettingsService>().SingleInstance();
-            */
+
+            //services - data
+            builder.RegisterType<MomentDataService>().As<IMomentDataService>();
+            builder.RegisterType<PresenceDataService>().As<IPresenceDataService>();
+            builder.RegisterType<StudentDataService>().As<IStudentDataService>();
+
+            //services - general
+            builder.RegisterType<AlertService>().As<IAlertService>();
+            builder.RegisterType<QRCodeService>().As<IQRCodeService>();
 
             //General
-            // builder.RegisterType<GenericRepository>().As<IGenericRepository>();
+            builder.RegisterType<GenericRepository>().As<IGenericRepository>();
             builder.Register(c => Instance).As<IDependencyResolver>();
 
             _container = builder.Build();

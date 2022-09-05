@@ -14,48 +14,87 @@
                 x:Key="IsBlancoToStringConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
-
-    <StackLayout Spacing="5" Padding="15">
-        <Label Text="{Binding Date, Converter={StaticResource DateTimeToStringConverter}}" 
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" Spacing="5" Padding="15">
+                <Label Text="{Binding Date, Converter={StaticResource DateTimeToStringConverter}}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
-        <Label Text="{Binding Name}" 
+                <Label Text="{Binding Name}" 
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="22" />
-        <Label Text="{Binding MomentType}" 
+                <Label Text="{Binding MomentType}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
-        <Label Text="{Binding Location}" 
+                <Label Text="{Binding Location}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
-        <Label Text="Aanwezige studenten:" 
+            </StackLayout>
+            <StackLayout Grid.Row="1" Spacing="5" Padding="15">
+                <Label Text="Aanwezige studenten:" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemTextStyle}"
                             FontSize="19"
                             Margin="0, 20, 0, 0" />
-        <CollectionView
+                <CollectionView
                 ItemsSource="{Binding Presences}"
                 SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Padding="10" x:DataType="model:Presence" Orientation="Horizontal">
-                        <Label Text="{Binding Student.FullName}" 
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="10" x:DataType="model:Presence" Orientation="Horizontal">
+                                <Label Text="{Binding Student.User.FullName}" 
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
-                        <Label Text="{Binding IsBlanco, Converter={StaticResource IsBlancoToStringConverter}}" 
+                                <Label Text="{Binding IsBlanco, Converter={StaticResource IsBlancoToStringConverter}}" 
                             LineBreakMode="NoWrap"
                             HorizontalOptions="End"
                             Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </StackLayout>
-    
+                            FontSize="10" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+            <StackLayout Grid.Row="2" Spacing="5" Padding="15">
+                <Label Text="Afwezige studenten:" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemTextStyle}"
+                            FontSize="19"
+                            Margin="0, 20, 0, 0" />
+                <CollectionView
+                ItemsSource="{Binding AbsentStudents}"
+                SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="10" x:DataType="model:Student" Orientation="Horizontal">
+                                <Label Text="{Binding User.FullName}" 
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+            <StackLayout Grid.Row="3" Spacing="10">
+                <Button Text="Scan QR voor afgave" 
+                        Command="{Binding ScanQRCodeCommand}"
+                />
+                <Button Text="Scan QR voor blanco" 
+                        Command="{Binding ScanQRCodeBlancoCommand}"
+                />
+            </StackLayout>
+        </Grid>
+    </ScrollView>
 </ContentPage>

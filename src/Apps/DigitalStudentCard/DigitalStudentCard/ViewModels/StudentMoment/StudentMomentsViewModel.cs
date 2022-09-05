@@ -1,30 +1,43 @@
-﻿using DigitalStudentCard.Core.DataStores.Contracts;
-using DigitalStudentCard.Core.Models;
-using DigitalStudentCard.Core.ViewModels.LectorMoment;
-using DigitalStudentCard.Core.Views.LectorMoment;
-using DigitalStudentCard.Core.Views.StudentMoment;
+﻿using DigitalStudentCard.Core.Models;
+using DigitalStudentCard.Core.Services.Contracts.Data;
+using DigitalStudentCard.Core.ViewModels.QRCode;
+using DigitalStudentCard.Core.Views.QRCode;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace DigitalStudentCard.Core.ViewModels.StudentMoment
 {
     public class StudentMomentsViewModel : BaseViewModel
     {
-        public IDataStore<Moment> DataStore => DependencyService.Get<IDataStore<Moment>>();
-        public ObservableCollection<Moment> Moments { get; }
-        public Command LoadMomentsCommand { get; }
-        public Command ShowQRCodeCommand { get; }
-        public StudentMomentsViewModel()
+        private IMomentDataService _momentDataService;
+        private ObservableCollection<Moment> _moments;
+       
+        public StudentMomentsViewModel(IMomentDataService momentDataService)
         {
+            _momentDataService = momentDataService;
             Title = "Browse";
             Moments = new ObservableCollection<Moment>();
             LoadMomentsCommand = new Command(async () => await ExecuteLoadMomentsCommand());
 
-            ShowQRCodeCommand = new Command(OnShowQRCode);
+            ShowQRCodeCommand = new Command<Moment>(OnShowQRCode);
+
+            MessagingCenter.Subscribe<QRScanningViewModel, Presence>(this, "PresenceAdded", (sender, arg) =>
+            {
+                ExecuteLoadMomentsCommand();
+            });
         }
+        public ObservableCollection<Moment> Moments
+        {
+            get => _moments;
+            set => SetProperty(ref _moments, value);
+        }
+        public Command LoadMomentsCommand { get; }
+        public Command ShowQRCodeCommand { get; }
+        public Command<Moment> MomentTapped { get; }
 
         async Task ExecuteLoadMomentsCommand()
         {
@@ -32,12 +45,8 @@ namespace DigitalStudentCard.Core.ViewModels.StudentMoment
 
             try
             {
-                Moments.Clear();
-                var moments = await DataStore.GetAllAsync(true);
-                foreach (var moment in moments)
-                {
-                    Moments.Add(moment);
-                }
+                var userNumber = Preferences.Get("UserNumber", 0);
+                Moments = await _momentDataService.GetStudentMomentsAsync(userNumber);
             }
             catch (Exception ex)
             {
@@ -56,7 +65,8 @@ namespace DigitalStudentCard.Core.ViewModels.StudentMoment
 
         private async void OnShowQRCode(object obj)
         {
-            await Shell.Current.GoToAsync($"{nameof(QRCodePage)}");
+            var userNumber = Preferences.Get("UserNumber", 0);
+            await Shell.Current.GoToAsync($"{nameof(QRCodePage)}?{nameof(QRCodeViewModel.UserNumber)}={userNumber}");
         }
     }
 }

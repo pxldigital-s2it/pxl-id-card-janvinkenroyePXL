@@ -4,6 +4,7 @@ using DigitalStudentCard.Core.Repositories.Contracts;
 using DigitalStudentCard.Core.Services.Contracts.Data;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 namespace DigitalStudentCard.Core.Services.Data
@@ -17,29 +18,41 @@ namespace DigitalStudentCard.Core.Services.Data
             _genericRepository = genericRepository;
         }
 
-        public async Task<IEnumerable<Moment>> GetLectorMomentsAsync(int lectorId)
+        public async Task<ObservableCollection<Moment>> GetLectorMomentsAsync(int userNumber)
         {
      
-            UriBuilder builder = new UriBuilder(ApiConstants.BaseUrl)
+            UriBuilder builder = new UriBuilder(ApiConstants.ApiUrl)
             {
-                Path = $"{ApiConstants.LectorsEndpointPath}/{lectorId}/moments"
+                Path = $"{ApiConstants.LectorsEndpointPath}/{userNumber}/moments"
             };
 
             var moments = await _genericRepository.GetAsync<List<Moment>>(builder.ToString());
 
-            return moments;
+            return new ObservableCollection<Moment>(moments);
         }
 
-        public async Task<IEnumerable<Moment>> GetStudentMomentsAsync(int studentId)
+        public async Task<ObservableCollection<Moment>> GetStudentMomentsAsync(int userNumber)
         {
-            UriBuilder builder = new UriBuilder(ApiConstants.BaseUrl)
+            UriBuilder builder = new UriBuilder(ApiConstants.ApiUrl)
             {
-                Path = $"{ApiConstants.LectorsEndpointPath}/{studentId}/moments"
+                Path = $"{ApiConstants.StudentsEndpointPath}/{userNumber}/moments"
             };
 
             var moments = await _genericRepository.GetAsync<List<Moment>>(builder.ToString());
+            
+            return new ObservableCollection<Moment>(moments);
+        }
 
-            return moments;
+        public async Task<Moment> GetMomentAsync(int momentId)
+        {
+            UriBuilder builder = new UriBuilder(ApiConstants.ApiUrl)
+            {
+                Path = $"{ApiConstants.MomentsEndpointPath}/{momentId}"
+            };
+
+            var moment = await _genericRepository.GetAsync<Moment>(builder.ToString());
+
+            return moment;
         }
     }
 }
